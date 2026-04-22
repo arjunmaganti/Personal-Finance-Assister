@@ -1,0 +1,349 @@
+{
+  "persona": "Near-retiree, high net worth, poor asset allocation, significant credit card debt, stable job in a city",
+  "pipeline_variant": "sequential",
+  "agent_1": {
+    "income_tier": "high",
+    "debt_load": "high",
+    "housing_situation": "owned",
+    "employment_stability": "stable",
+    "goal": "Eliminate significant credit card debt and optimize asset allocation for retirement within 12-24 months.",
+    "applicable_heuristics": [
+      "50/30/20 Rule",
+      "Pay Yourself First",
+      "Emergency Fund",
+      "Avoid High-Interest Debt",
+      "Rule of 72",
+      "401(k) Employer Match",
+      "Age-Based Asset Allocation"
+    ],
+    "additional_considerations": [
+      {
+        "item": "Debt Avalanche/Snowball Method",
+        "rationale": "Given significant credit card debt, a structured approach to repayment (prioritizing highest interest or smallest balance) would be highly beneficial."
+      },
+      {
+        "item": "Retirement Income Planning",
+        "rationale": "As a near-retiree, the focus shifts from accumulation to preservation and distribution strategies, which is critical given poor asset allocation."
+      }
+    ],
+    "inapplicable_heuristics": [
+      {
+        "rule": "15% Retirement Savings",
+        "reason": "As a near-retiree, the focus is less on new accumulation at a fixed percentage and more on optimizing existing assets and planning for distribution."
+      },
+      {
+        "rule": "Housing Costs Under 30%",
+        "reason": "With high net worth and likely owning a home, this rule is less relevant for ongoing budgeting compared to debt and asset allocation issues."
+      }
+    ],
+    "cognitive_risks": [
+      {
+        "bias": "Anchoring",
+        "reason": "May be anchored to past investment strategies or market performance, making them resistant to reallocating assets despite current 'poor asset allocation'."
+      },
+      {
+        "bias": "Status Quo Bias",
+        "reason": "The 'poor asset allocation' suggests a tendency to stick with existing investment choices, even if they are no longer optimal for a near-retiree."
+      },
+      {
+        "bias": "Loss Aversion",
+        "reason": "May be unwilling to sell underperforming assets to rebalance their portfolio, fearing to realize losses, which contributes to 'poor asset allocation'."
+      }
+    ],
+    "additional_biases": [
+      {
+        "bias": "Sunk Cost Fallacy",
+        "reason": "May continue to hold onto poorly performing investments because of the time or money already invested, rather than cutting losses and reallocating."
+      },
+      {
+        "bias": "Overconfidence Bias",
+        "reason": "Despite 'poor asset allocation' and 'significant credit card debt', they might be overconfident in their ability to manage their finances without professional guidance."
+      }
+    ],
+    "assumptions": {
+      "housing_situation": "Assumed 'owned' given 'high net worth' and 'stable job in a city', as specific housing status was not provided."
+    }
+  },
+  "agent_2": {
+    "baseline_plan": [
+      {
+        "heuristic": "401(k) Employer Match",
+        "recommendation": "Contribute 6% of your gross salary, which is $750/month, to your employer-sponsored 401(k) plan to capture the full employer match of $375/month.",
+        "monthly_impact": "$750",
+        "priority": 1
+      },
+      {
+        "heuristic": "Avoid High-Interest Debt",
+        "recommendation": "After securing your 401(k) employer match, direct all remaining funds from your 20% savings/debt allocation ($1,000/month) towards aggressively paying down your significant credit card debt of $20,000 at an assumed 20% APR.",
+        "monthly_impact": "$1,000",
+        "priority": 2
+      },
+      {
+        "heuristic": "Emergency Fund",
+        "recommendation": "Once the high-interest credit card debt is eliminated, redirect the $1,000/month (previously allocated to debt) to build a liquid emergency fund in a high-yield savings account. Target $26,250, which represents 6 months of your estimated essential living expenses.",
+        "monthly_impact": "$1,000",
+        "priority": 3
+      },
+      {
+        "heuristic": "Age-Based Asset Allocation",
+        "recommendation": "Rebalance your existing investment portfolio to align with a moderate risk profile for a 60-year-old near-retiree. Using the Rule of 110, aim for approximately 50% equities and 50% fixed income.",
+        "monthly_impact": "N/A",
+        "priority": 4
+      },
+      {
+        "heuristic": "50/30/20 Rule",
+        "recommendation": "Allocate your after-tax monthly income of $8,750 as follows: $4,375 (50%) to Needs, $2,625 (30%) to Wants, and $1,750 (20%) to Savings and Debt Repayment.",
+        "monthly_impact": "$1,750",
+        "priority": "N/A"
+      },
+      {
+        "heuristic": "Pay Yourself First",
+        "recommendation": "Set up an automatic transfer of $1,750 (your total 20% savings/debt allocation) from your checking account to your 401(k) and a dedicated debt repayment/savings account immediately after each payday.",
+        "monthly_impact": "$1,750",
+        "priority": "N/A"
+      },
+      {
+        "heuristic": "Rule of 72",
+        "recommendation": "Use the Rule of 72 as a mental shortcut to understand the power of compounding. For example, an investment earning 7% annually will approximately double every 10 years (72 / 7 \u2248 10.3).",
+        "monthly_impact": "N/A",
+        "priority": "N/A"
+      }
+    ],
+    "inapplicable_notes": [
+      {
+        "rule": "15% Retirement Savings",
+        "reason": "As a near-retiree, the focus is less on new accumulation at a fixed percentage and more on optimizing existing assets and planning for distribution."
+      },
+      {
+        "rule": "Housing Costs Under 30%",
+        "reason": "With high net worth and likely owning a home, this rule is less relevant for ongoing budgeting compared to debt and asset allocation issues."
+      }
+    ],
+    "assumptions": [
+      "Assumed gross annual income of $150,000 for a high-income near-retiree.",
+      "Assumed an effective tax rate of 30% for calculating after-tax income, resulting in $8,750 after-tax monthly income.",
+      "Assumed credit card debt of $20,000 with a 20% APR.",
+      "Assumed an age of 60 for 'near-retiree' to apply Age-Based Asset Allocation.",
+      "Assumed a 401(k) employer match of 50% of contributions up to 6% of gross salary.",
+      "Assumed essential monthly expenses of $4,375 based on the 50/30/20 rule's 'Needs' category."
+    ],
+    "baseline_summary": "This baseline plan mechanically applies standard financial heuristics to address high-interest debt, establish an emergency fund, and rebalance existing investments for a near-retiree. It provides a foundational spending framework and prioritizes immediate financial stability and guaranteed returns. This plan does not yet optimize for the persona's specific goal of retirement within 12-24 months, nor does it account for specific retirement income planning or distribution strategies."
+  },
+  "agent_3": {
+    "optimized_plan": [
+      {
+        "heuristic": "Strategic Asset Liquidation",
+        "source": "new",
+        "recommendation": "Given your high net worth and the urgency of eliminating high-interest credit card debt, evaluate liquidating a portion of your poorly allocated or underperforming investment assets to make a significant lump-sum payment towards the $20,000 credit card debt. Prioritize assets with minimal capital gains tax implications or those that are significantly misaligned with your new retirement allocation.",
+        "deviation_from_baseline": "This is a new recommendation not present in the baseline plan. The baseline focused solely on monthly income allocation for debt repayment.",
+        "rationale": "This recommendation directly addresses the 'eliminate significant credit card debt within 12-24 months' goal by potentially achieving it immediately, and simultaneously begins to address 'poor asset allocation' by strategically divesting from suboptimal holdings. This is a key optimization for a high net worth individual.",
+        "monthly_impact": "N/A (lump sum)",
+        "priority": 1
+      },
+      {
+        "heuristic": "401(k) Employer Match",
+        "source": "baseline",
+        "recommendation": "Contribute 6% of your gross salary, which is $750/month, to your employer-sponsored 401(k) plan to capture the full employer match of $375/month.",
+        "deviation_from_baseline": null,
+        "rationale": "Capturing the full employer match provides an immediate, guaranteed return, which is a foundational element for optimizing retirement assets and does not hinder the aggressive debt repayment goal.",
+        "monthly_impact": "$750",
+        "priority": 1
+      },
+      {
+        "heuristic": "50/30/20 Rule",
+        "source": "modified",
+        "recommendation": "To aggressively tackle debt, reallocate your after-tax monthly income of $8,750 as follows: $4,375 (50%) to Needs, $1,750 (20%) to Wants (reduced from 30%), and $2,625 (30%) to Savings and Debt Repayment (increased from 20%).",
+        "deviation_from_baseline": "Modified the allocation from 50/30/20 to 50/20/30. Specifically, the 'Wants' category was reduced from 30% ($2,625) to 20% ($1,750), and the 'Savings and Debt Repayment' category was increased from 20% ($1,750) to 30% ($2,625).",
+        "rationale": "This reallocation is critical to free up additional funds for aggressive credit card debt repayment, enabling the persona to eliminate the significant debt well within the 12-24 month goal.",
+        "monthly_impact": "$2,625",
+        "priority": "N/A"
+      },
+      {
+        "heuristic": "Pay Yourself First",
+        "source": "modified",
+        "recommendation": "Set up an automatic transfer of $2,625 (your total 30% savings/debt allocation) from your checking account immediately after each payday. Direct $750 to your 401(k) and $1,875 to your credit card debt repayment.",
+        "deviation_from_baseline": "Increased the automatic transfer amount from $1,750 to $2,625 to reflect the increased allocation to savings and debt repayment, ensuring the aggressive debt payoff and 401(k) contributions are prioritized.",
+        "rationale": "Automating the higher payment ensures consistent and disciplined progress towards eliminating the credit card debt within the 12-24 month goal and prevents discretionary spending from derailing the plan.",
+        "monthly_impact": "$2,625",
+        "priority": "N/A"
+      },
+      {
+        "heuristic": "Avoid High-Interest Debt",
+        "source": "modified",
+        "recommendation": "After securing your 401(k) employer match, direct the remaining $1,875/month from your increased savings/debt allocation towards aggressively paying down your significant credit card debt of $20,000 at an assumed 20% APR. Employ the debt avalanche method, prioritizing this highest-interest debt.",
+        "deviation_from_baseline": "Increased monthly debt payment from $1,000 to $1,875 by reallocating funds from the 'Wants' category. Also explicitly incorporated the 'debt avalanche' method.",
+        "rationale": "This aggressive payment schedule is crucial to eliminate the high-interest credit card debt within the persona's stated goal of 12-24 months, specifically targeting the lower end of that range (approximately 11-12 months). The avalanche method ensures the most mathematically efficient payoff.",
+        "monthly_impact": "$1,875",
+        "priority": 2
+      },
+      {
+        "heuristic": "Emergency Fund",
+        "source": "modified",
+        "recommendation": "Once the high-interest credit card debt is eliminated (projected within 11-12 months if relying on monthly payments), redirect the full $1,875/month (previously allocated to debt) to build a liquid emergency fund in a high-yield savings account. Target $26,250, which represents 6 months of your estimated essential living expenses.",
+        "deviation_from_baseline": "Increased the monthly contribution to the emergency fund from $1,000 to $1,875, reflecting the funds freed up after the accelerated debt repayment.",
+        "rationale": "Building a robust emergency fund quickly after debt elimination provides essential financial security, which is critical for a near-retiree, and ensures stability as they transition into retirement within the 12-24 month timeframe.",
+        "monthly_impact": "$1,875",
+        "priority": 3
+      },
+      {
+        "heuristic": "Age-Based Asset Allocation",
+        "source": "baseline",
+        "recommendation": "Rebalance your existing investment portfolio to align with a moderate risk profile for a 60-year-old near-retiree. Using the Rule of 110, aim for approximately 50% equities and 50% fixed income.",
+        "deviation_from_baseline": null,
+        "rationale": "This directly addresses the 'optimize asset allocation for retirement' goal by adjusting the portfolio to a risk level appropriate for a near-retiree, preserving capital while still allowing for growth.",
+        "monthly_impact": "N/A",
+        "priority": 4
+      },
+      {
+        "heuristic": "Retirement Income Strategy",
+        "source": "new",
+        "recommendation": "Develop a comprehensive retirement income strategy that considers your optimized asset allocation, potential safe withdrawal rates (e.g., 4% rule), Social Security claiming strategies, and tax-efficient distribution from various accounts (401k, taxable brokerage). This plan should aim to provide a stable income stream for your projected retirement lifestyle.",
+        "deviation_from_baseline": "This is a new recommendation not present in the baseline plan, which focused on accumulation and rebalancing but not distribution strategies.",
+        "rationale": "This directly addresses the 'optimize asset allocation for retirement' goal by moving beyond just rebalancing to actual income generation and distribution planning, which is paramount for a near-retiree planning to retire within 12-24 months.",
+        "monthly_impact": "N/A",
+        "priority": 5
+      },
+      {
+        "heuristic": "Rule of 72",
+        "source": "modified",
+        "recommendation": "While primarily for long-term growth, the Rule of 72 can illustrate the impact of inflation on cash or overly conservative assets. For example, with 3% inflation, your purchasing power halves in approximately 24 years (72 / 3 = 24), emphasizing the need for an optimized asset allocation even in retirement.",
+        "deviation_from_baseline": "Shifted the focus of the Rule of 72 from illustrating long-term investment doubling to highlighting the impact of inflation on purchasing power for a near-retiree, making it more relevant to asset preservation and the need for optimized asset allocation.",
+        "rationale": "For a near-retiree, understanding the erosion of purchasing power due to inflation is as critical as understanding growth, especially when optimizing asset allocation for a sustainable retirement income.",
+        "monthly_impact": "N/A",
+        "priority": "N/A"
+      }
+    ],
+    "goal_alignment": {
+      "goal": "Eliminate significant credit card debt and optimize asset allocation for retirement within 12-24 months.",
+      "addressed_by": [
+        "Strategic Asset Liquidation",
+        "Avoid High-Interest Debt",
+        "50/30/20 Rule",
+        "Pay Yourself First",
+        "Emergency Fund",
+        "Age-Based Asset Allocation",
+        "Retirement Income Strategy"
+      ],
+      "projected_timeline": "If a lump-sum payment from existing assets is feasible, credit card debt could be eliminated immediately. If relying on monthly payments of $1,875, the $20,000 credit card debt (at 20% APR) will be eliminated in approximately 11-12 months. Following debt elimination, the emergency fund will be fully built in an additional 5-6 months. Asset allocation rebalancing can be completed within weeks, and the development of a comprehensive retirement income strategy can occur concurrently over a few months. All key components of the goal are projected to be achieved well within the 12-24 month target.",
+      "gap_analysis": "The plan provides a framework for optimizing existing assets and eliminating debt but does not detail specific tax implications of asset liquidation or distribution strategies, which would require a deeper dive into the persona's specific holdings and tax situation. It also assumes the persona has sufficient liquid assets or is willing to significantly reduce discretionary spending to meet the aggressive debt repayment targets."
+    },
+    "additional_considerations_incorporated": [
+      {
+        "item": "Debt Avalanche/Snowball Method",
+        "incorporated": true,
+        "application": "The 'Avoid High-Interest Debt' recommendation explicitly incorporates the debt avalanche method to prioritize the highest-interest credit card debt for the most efficient payoff."
+      },
+      {
+        "item": "Retirement Income Planning",
+        "incorporated": true,
+        "application": "A new recommendation, 'Retirement Income Strategy,' was added to address the critical shift from accumulation to preservation and distribution strategies for a near-retiree."
+      }
+    ],
+    "cognitive_risk_mitigations": [
+      {
+        "bias": "Anchoring",
+        "source": "cognitive_risks",
+        "mitigation": "The 'Strategic Asset Liquidation' and 'Age-Based Asset Allocation' recommendations explicitly encourage moving away from past, suboptimal investment strategies and focusing on current and future needs for retirement, countering any anchoring to previous asset values or allocations."
+      },
+      {
+        "bias": "Status Quo Bias",
+        "source": "cognitive_risks",
+        "mitigation": "The plan directly challenges the status quo by recommending aggressive debt paydown (requiring budget changes) and a complete rebalancing of the portfolio. The 'Pay Yourself First' heuristic helps overcome inertia by automating the new, optimized financial behaviors."
+      },
+      {
+        "bias": "Loss Aversion",
+        "source": "cognitive_risks",
+        "mitigation": "The 'Strategic Asset Liquidation' recommendation suggests prioritizing assets with minimal capital gains tax implications or those significantly misaligned with the new allocation, framing it as an optimization rather than just 'selling losers.' The 'Age-Based Asset Allocation' emphasizes the risk reduction benefit of rebalancing, which can appeal to loss-averse individuals by focusing on avoiding future large losses."
+      },
+      {
+        "bias": "Sunk Cost Fallacy",
+        "source": "additional_biases",
+        "mitigation": "The 'Strategic Asset Liquidation' and 'Age-Based Asset Allocation' recommendations implicitly counter this bias by focusing on the future utility of the capital and the current optimal allocation for retirement, rather than past investment decisions or the time/money already invested."
+      },
+      {
+        "bias": "Overconfidence Bias",
+        "source": "additional_biases",
+        "mitigation": "The detailed, structured plan with specific dollar amounts and timelines provides a clear roadmap. The recommendation for a 'Retirement Income Strategy' implicitly suggests a need for comprehensive planning that may benefit from expert input, subtly guiding the persona towards acknowledging the complexity of near-retirement financial management."
+      }
+    ],
+    "assumptions": [
+      "Assumed gross annual income of $150,000 for a high-income near-retiree.",
+      "Assumed an effective tax rate of 30% for calculating after-tax income, resulting in $8,750 after-tax monthly income.",
+      "Assumed credit card debt of $20,000 with a 20% APR.",
+      "Assumed an age of 60 for 'near-retiree' to apply Age-Based Asset Allocation.",
+      "Assumed a 401(k) employer match of 50% of contributions up to 6% of gross salary.",
+      "Assumed essential monthly expenses of $4,375 based on the 50/30/20 rule's 'Needs' category.",
+      "The persona has sufficient liquid assets or easily re-allocatable investments to make a lump-sum payment towards credit card debt, or to significantly increase monthly payments by reducing discretionary spending.",
+      "The persona is willing to reduce discretionary 'Wants' spending from 30% to 20% of after-tax income to accelerate debt repayment."
+    ]
+  },
+  "agent_4": {
+    "pipeline_variant": "sequential",
+    "pipeline_stages_evaluated": [
+      "agent_1",
+      "agent_2",
+      "agent_3"
+    ],
+    "rubric_scores": {
+      "heuristic_alignment": {
+        "score": 5,
+        "confidence": "high",
+        "justification": "Agent 3 successfully incorporated all applicable heuristics identified by Agent 1, modifying several for better goal alignment and adding strategic recommendations like asset liquidation and retirement income planning, which align with Agent 1's additional considerations.",
+        "flags": []
+      },
+      "persona_fit": {
+        "score": 5,
+        "confidence": "high",
+        "justification": "The plan is highly tailored to the persona's specific situation, leveraging high net worth for debt elimination and focusing on near-retirement asset optimization and income planning. The aggressive debt repayment is appropriate given the high income and stable employment.",
+        "flags": []
+      },
+      "goal_specificity": {
+        "score": 5,
+        "confidence": "high",
+        "justification": "Agent 3's plan provides highly specific recommendations with concrete dollar amounts, revised budget allocations, and clear timelines that directly address both the debt elimination and asset optimization components of the persona's goal within the specified 12-24 month timeframe.",
+        "flags": []
+      },
+      "bias_avoidance": {
+        "score": 5,
+        "confidence": "high",
+        "justification": "Agent 3 provided specific and actionable mitigations for all cognitive biases identified by Agent 1, directly integrating them into the plan's recommendations to guide the persona towards optimal financial decisions.",
+        "flags": []
+      },
+      "feasibility": {
+        "verdict": "feasible",
+        "confidence": "high",
+        "justification": "The plan's financial allocations sum correctly and are realistically achievable for a high-income individual. The aggressive debt repayment is feasible within the timeline, especially with the option of asset liquidation. The behavioral assumption of reducing 'Wants' is reasonable for achieving an urgent financial goal.",
+        "flags": []
+      }
+    },
+    "pipeline_integrity": {
+      "agent_1_assessment": {
+        "performed_correctly": true,
+        "issues": [
+          "Agent 1 accurately identified the persona's financial situation and correctly classified applicable and inapplicable heuristics, providing sound rationales for each."
+        ]
+      },
+      "agent_2_assessment": {
+        "stayed_in_lane": true,
+        "issues": [
+          "Agent 2 accurately translated Agent 1's applicable heuristics into a foundational plan, demonstrating a clear understanding of its role as a mechanical baseline generator."
+        ]
+      },
+      "agent_3_assessment": {
+        "meaningfully_deviated": true,
+        "deviation_quality": "justified",
+        "issues": [
+          "Agent 3 significantly optimized the baseline plan by introducing new, highly relevant strategies and modifying existing heuristics with clear, goal-specific rationales.",
+          "The plan effectively integrates the persona's high net worth into actionable recommendations, such as strategic asset liquidation, which was absent in the baseline."
+        ]
+      }
+    },
+    "overall_recommendation": "approve",
+    "revision_suggestions": [
+      "The plan could benefit from detailing specific tax implications of asset liquidation and distribution strategies, which would require a deeper dive into the persona's specific holdings and tax situation.",
+      "Consider adding a recommendation for consulting with a tax professional or financial advisor for detailed tax planning related to asset liquidation and retirement distributions.",
+      "While the plan assumes the persona is willing to reduce discretionary spending, it could benefit from outlining alternative strategies if the persona is unable or unwilling to make such a significant cut to 'Wants'."
+    ],
+    "user_facing_summary": "This financial plan provides a clear and aggressive strategy to eliminate your credit card debt and prepare your investments for retirement. It smartly suggests using some of your existing assets to pay off debt quickly and outlines how to adjust your spending to speed up this process. While the plan is very effective, it doesn't go into detail about the tax effects of selling investments or specific retirement income options. Your next step should be to talk with a financial expert to get personalized advice on these tax and retirement income details."
+  }
+}

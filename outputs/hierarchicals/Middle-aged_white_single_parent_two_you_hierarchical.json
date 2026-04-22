@@ -1,0 +1,348 @@
+{
+  "persona": "Middle-aged white single parent, two young children, moderate income, suburban, wants to save for college in 10 years",
+  "pipeline_variant": "hierarchical",
+  "routing_decisions": {
+    "persona_profiler": {
+      "called": true,
+      "reason": "Always called first"
+    },
+    "heuristic_strategist": {
+      "called": true,
+      "reason": "Standard persona with sufficient applicable heuristics"
+    },
+    "goal_optimizer": {
+      "called": true,
+      "reason": "Always called"
+    },
+    "quality_control": {
+      "called": true,
+      "reason": "Always called last"
+    }
+  },
+  "agent_1": {
+    "assumptions": {
+      "debt_status": "Assumed 'none' as no debt was mentioned.",
+      "housing_ownership": "Assumed 'owned' given 'middle-aged' and 'suburban' context, but could be renting.",
+      "employment_type": "Assumed 'stable' employment given 'moderate income' and 'middle-aged' life stage."
+    },
+    "income_tier": "mid",
+    "debt_load": "none",
+    "housing_situation": "owned",
+    "employment_stability": "stable",
+    "goal": "Save for college for two young children in 10 years.",
+    "applicable_heuristics": [
+      "50/30/20 Rule",
+      "Pay Yourself First",
+      "Emergency Fund",
+      "15% Retirement Savings",
+      "Housing Costs Under 30%",
+      "Avoid High-Interest Debt",
+      "Rule of 72",
+      "401(k) Employer Match",
+      "Age-Based Asset Allocation"
+    ],
+    "additional_considerations": [
+      {
+        "item": "529 College Savings Plan",
+        "rationale": "A dedicated tax-advantaged savings vehicle specifically designed for college expenses, highly relevant for the stated goal."
+      }
+    ],
+    "inapplicable_heuristics": [],
+    "cognitive_risks": [
+      {
+        "bias": "Status Quo Bias",
+        "reason": "The persona 'wants to save' for college, implying they might not be actively doing so or are sticking to current financial habits that are not optimal for this goal."
+      },
+      {
+        "bias": "Loss Aversion",
+        "reason": "May be hesitant to reallocate existing funds or commit more disposable income to long-term savings due to the perceived 'loss' of current spending or fear of investment losses."
+      }
+    ],
+    "additional_biases": [
+      {
+        "bias": "Present Bias",
+        "reason": "The long-term goal of college savings (10 years away) might be de-prioritized in favor of immediate gratification or short-term needs, making consistent saving challenging."
+      },
+      {
+        "bias": "Optimism Bias",
+        "reason": "May overestimate future income or ability to save, or underestimate the actual cost of college, leading to insufficient planning or contributions."
+      }
+    ]
+  },
+  "agent_2": {
+    "baseline_plan": [
+      {
+        "heuristic": "Emergency Fund",
+        "recommendation": "Prioritize directing $800/month from your 50/30/20 savings allocation towards building a liquid cash reserve of $12,000 (6 months of essential expenses) in a high-yield savings account.",
+        "monthly_impact": "$800",
+        "priority": 1
+      },
+      {
+        "heuristic": "401(k) Employer Match",
+        "recommendation": "Contribute at least $300/month (6% of your $60,000 gross annual income) to your employer's 401(k) to capture the full employer match of $150/month.",
+        "monthly_impact": "$300",
+        "priority": 2
+      },
+      {
+        "heuristic": "Avoid High-Interest Debt",
+        "recommendation": "Continue to avoid carrying high-interest debt, especially credit card balances, by paying off statements in full each month.",
+        "monthly_impact": "$0",
+        "priority": 3
+      },
+      {
+        "heuristic": "Pay Yourself First",
+        "recommendation": "Set up an automatic transfer of $800/month (the 20% savings from the 50/30/20 rule) to a separate savings or investment account immediately upon receiving income.",
+        "monthly_impact": "$800",
+        "priority": 4
+      },
+      {
+        "heuristic": "15% Retirement Savings",
+        "recommendation": "After securing the 401(k) employer match, contribute an additional $450/month to retirement accounts (e.g., a Roth IRA) to reach the 15% target of $750/month ($300 from 401k + $450 additional).",
+        "monthly_impact": "$450",
+        "priority": 5
+      },
+      {
+        "heuristic": "Housing Costs Under 30%",
+        "recommendation": "Ensure total monthly housing costs (mortgage, property taxes, insurance, utilities) do not exceed $1,500 (30% of your $60,000 gross annual income).",
+        "monthly_impact": "Indeterminate",
+        "priority": 6
+      },
+      {
+        "heuristic": "Age-Based Asset Allocation",
+        "recommendation": "Allocate approximately 70% of your investment portfolio to equities (stocks) and 30% to fixed income (bonds), based on the Rule of 110 for a 40-year-old.",
+        "monthly_impact": "N/A",
+        "priority": 7
+      },
+      {
+        "heuristic": "50/30/20 Rule",
+        "recommendation": "Allocate your $4,000/month after-tax income as follows: $2,000/month (50%) to needs, $1,200/month (30%) to wants, and $800/month (20%) to savings and debt repayment.",
+        "monthly_impact": "$800",
+        "priority": "N/A"
+      },
+      {
+        "heuristic": "Rule of 72",
+        "recommendation": "Understand that at an assumed average annual return of 7%, your investments would approximately double every 10 years.",
+        "monthly_impact": "N/A",
+        "priority": "N/A"
+      }
+    ],
+    "inapplicable_notes": [],
+    "assumptions": [
+      "Assumed gross annual income of $60,000 for 'moderate income'.",
+      "Assumed an effective tax rate of 20% for after-tax income calculation, resulting in $4,000/month.",
+      "Assumed an age of 40 for 'middle-aged' for Age-Based Asset Allocation.",
+      "Assumed a standard 401(k) employer match of 50% of contributions up to 6% of salary.",
+      "Assumed essential monthly expenses are 50% of after-tax income ($2,000/month) for emergency fund calculation."
+    ],
+    "baseline_summary": "This baseline financial plan establishes foundational financial habits and targets based on standard heuristics. It provides guidance on emergency savings, debt avoidance, retirement contributions, and general spending allocation. This plan does not specifically optimize for the persona's stated goal of college savings, which will be addressed in a later stage."
+  },
+  "agent_3": {
+    "optimized_plan": [
+      {
+        "heuristic": "Emergency Fund",
+        "source": "baseline",
+        "recommendation": "Prioritize directing $800/month from your 50/30/20 savings allocation towards building a liquid cash reserve of $12,000 (6 months of essential expenses) in a high-yield savings account. This will take approximately 15 months.",
+        "deviation_from_baseline": null,
+        "rationale": "A robust emergency fund is the foundational layer of financial security, especially for a single parent. It prevents unexpected expenses from derailing your primary goal of college savings by avoiding high-interest debt or liquidating investments prematurely.",
+        "monthly_impact": "$800",
+        "priority": 1
+      },
+      {
+        "heuristic": "401(k) Employer Match",
+        "source": "modified",
+        "recommendation": "Contribute at least $300/month (6% of your $60,000 gross annual income) to your employer's 401(k) to capture the full employer match of $150/month. This contribution is made pre-tax and is assumed to be already factored into your $4,000 after-tax income for 50/30/20 budgeting.",
+        "deviation_from_baseline": "Added clarification that the 401(k) contribution is pre-tax and assumed to be factored into the after-tax income calculation, ensuring it doesn't compete with the 20% savings bucket.",
+        "rationale": "Capturing the full employer match is an immediate, guaranteed 50% return on your investment, which is critical for building long-term wealth without compromising your ability to save for college. It's 'free money' that significantly boosts your overall financial health.",
+        "monthly_impact": "$300 (pre-tax)",
+        "priority": 2
+      },
+      {
+        "heuristic": "Avoid High-Interest Debt",
+        "source": "baseline",
+        "recommendation": "Continue to avoid carrying high-interest debt, especially credit card balances, by paying off statements in full each month.",
+        "deviation_from_baseline": null,
+        "rationale": "High-interest debt would severely impede your ability to save for college, as the interest payments would consume funds that could otherwise be directed towards your children's education, making your 10-year goal much harder to achieve.",
+        "monthly_impact": "$0",
+        "priority": 3
+      },
+      {
+        "heuristic": "Pay Yourself First",
+        "source": "modified",
+        "recommendation": "Set up an automatic transfer of $800/month (your 20% savings allocation) immediately upon receiving income. For the first 15 months, direct this entire amount to your emergency fund. Once the $12,000 emergency fund is fully funded, redirect $500/month to a 529 college savings plan and $300/month to a Roth IRA for additional retirement savings.",
+        "deviation_from_baseline": "Specified the phased allocation of the $800/month after the emergency fund is complete, explicitly directing funds to college savings and then additional retirement contributions.",
+        "rationale": "Automating savings ensures consistent progress towards your college goal by removing the decision-making process and prioritizing your children's education before discretionary spending, making it easier to stick to the plan over the 10-year horizon.",
+        "monthly_impact": "$800",
+        "priority": 4
+      },
+      {
+        "heuristic": "Goal-Specific Savings",
+        "source": "new",
+        "recommendation": "Once your $12,000 emergency fund is complete (after approximately 15 months), open a 529 College Savings Plan for your children and contribute $500/month. Consider opening separate accounts for each child or a single account with beneficiaries.",
+        "deviation_from_baseline": "This is a new recommendation, directly addressing the persona's primary goal of college savings, which was not explicitly detailed in the baseline plan beyond a general 'savings' bucket. It specifies the vehicle and allocation.",
+        "rationale": "A 529 plan is a tax-advantaged investment vehicle specifically designed for college expenses, allowing your contributions to grow tax-free and withdrawals for qualified education expenses to be tax-free. This is the most efficient way to save for your children's college education within your 10-year timeline.",
+        "monthly_impact": "$500 (after 15 months)",
+        "priority": 5
+      },
+      {
+        "heuristic": "15% Retirement Savings",
+        "source": "modified",
+        "recommendation": "After securing your 401(k) employer match and fully funding your emergency fund, contribute an additional $300/month to a Roth IRA. This brings your total retirement savings (401k + Roth IRA) to $600/month, or 12% of your gross income, temporarily prioritizing college savings over the full 15% retirement target.",
+        "deviation_from_baseline": "Reduced the additional monthly retirement contribution from $450 to $300 to free up $150/month for college savings, and clarified the timing (after emergency fund completion).",
+        "rationale": "While 15% retirement savings is a general guideline, temporarily adjusting it to 12% allows you to aggressively pursue your time-sensitive college savings goal for your children, which has a fixed 10-year deadline. You can revisit increasing retirement contributions after the college goal is met or as your income grows.",
+        "monthly_impact": "$300 (after 15 months)",
+        "priority": 6
+      },
+      {
+        "heuristic": "Housing Costs Under 30%",
+        "source": "baseline",
+        "recommendation": "Ensure total monthly housing costs (mortgage, property taxes, insurance, utilities) do not exceed $1,500 (30% of your $60,000 gross annual income).",
+        "deviation_from_baseline": null,
+        "rationale": "Maintaining housing costs within this guideline is crucial to ensure sufficient disposable income remains available to fund your emergency savings, retirement, and critically, your children's college education, without which the college savings goal would be unattainable.",
+        "monthly_impact": "Indeterminate",
+        "priority": 7
+      },
+      {
+        "heuristic": "Age-Based Asset Allocation",
+        "source": "modified",
+        "recommendation": "For your retirement accounts, allocate approximately 70% of your investment portfolio to equities (stocks) and 30% to fixed income (bonds), based on the Rule of 110 for a 40-year-old. For your 529 college savings plan, maintain a similar growth-oriented allocation initially, but plan to gradually de-risk by increasing bond allocation as the 10-year college deadline approaches.",
+        "deviation_from_baseline": "Extended the recommendation to explicitly include the 529 college savings plan and added a note about de-risking as the deadline approaches to protect capital.",
+        "rationale": "A growth-oriented asset allocation is appropriate for both retirement and college savings with a 10-year horizon, maximizing potential returns. However, for the college fund, a gradual shift to more conservative assets is vital to protect accumulated capital as the funds are needed, directly supporting the goal of having funds available when your children start college.",
+        "monthly_impact": "N/A",
+        "priority": 8
+      },
+      {
+        "heuristic": "50/30/20 Rule",
+        "source": "modified",
+        "recommendation": "Allocate your $4,000/month after-tax income as follows: $2,000/month (50%) to needs, $1,200/month (30%) to wants, and $800/month (20%) to savings. This $800/month will first fund your emergency savings, then be split between college savings and additional retirement contributions as detailed in other recommendations.",
+        "deviation_from_baseline": "Clarified how the 20% savings bucket is specifically allocated to serve the persona's goals in a phased approach, explicitly linking it to emergency, college, and retirement savings.",
+        "rationale": "This budgeting framework provides a clear structure for managing your income, ensuring that a dedicated portion is consistently set aside for your financial goals, with a specific focus on enabling college savings within the defined 10-year timeframe.",
+        "monthly_impact": "$800",
+        "priority": "N/A"
+      },
+      {
+        "heuristic": "Rule of 72",
+        "source": "modified",
+        "recommendation": "Understand that at an assumed average annual return of 7%, your investments would approximately double every 10 years. This applies to both your retirement and college savings, illustrating the power of consistent contributions to your 529 plan.",
+        "deviation_from_baseline": "Added clarification that it applies to both retirement and college savings, and specifically linked it to motivating 529 contributions.",
+        "rationale": "Understanding the power of compounding, as illustrated by the Rule of 72, can motivate consistent contributions to your 529 plan, demonstrating how even moderate monthly savings can grow significantly over your 10-year college savings horizon, making the goal feel more achievable.",
+        "monthly_impact": "N/A",
+        "priority": "N/A"
+      }
+    ],
+    "goal_alignment": {
+      "goal": "Save for college for two young children in 10 years.",
+      "addressed_by": [
+        "Emergency Fund",
+        "Pay Yourself First",
+        "Goal-Specific Savings",
+        "15% Retirement Savings",
+        "Housing Costs Under 30%",
+        "Age-Based Asset Allocation",
+        "50/30/20 Rule",
+        "Rule of 72"
+      ],
+      "projected_timeline": "The emergency fund will be completed in approximately 15 months. College savings will then commence for the remaining 8.75 years (105 months). Contributing $500/month to a 529 plan at an assumed 7% annual return for 105 months is projected to accumulate approximately $71,055.",
+      "gap_analysis": "While the plan establishes a strong foundation and a significant contribution to college savings, the projected $71,055 may not fully cover the rising costs of college for two children in 10 years, especially for out-of-state or private institutions. The plan also temporarily reduces retirement savings to prioritize college, creating a gap in long-term retirement funding that will need to be addressed after the college goal is met or as income increases."
+    },
+    "additional_considerations_incorporated": [
+      {
+        "item": "529 College Savings Plan",
+        "incorporated": true,
+        "application": "A new recommendation for a 'Goal-Specific Savings' heuristic was added, explicitly directing $500/month to a 529 College Savings Plan once the emergency fund is complete. This is the primary vehicle for achieving the college savings goal."
+      }
+    ],
+    "cognitive_risk_mitigations": [
+      {
+        "bias": "Status Quo Bias",
+        "source": "cognitive_risks",
+        "mitigation": "The 'Pay Yourself First' recommendation, with explicit instructions for automatic transfers to the emergency fund and then the 529 plan, directly counters the tendency to stick to current habits by automating the desired change. The plan also quantifies the tax advantages of the 529 plan to make the benefit of change clear."
+      },
+      {
+        "bias": "Loss Aversion",
+        "source": "cognitive_risks",
+        "mitigation": "The plan prioritizes building an emergency fund first, which provides a safety net and reduces the perceived 'loss' of investing by ensuring liquid cash is available for unexpected events. It also frames the temporary reduction in retirement savings as a strategic choice to achieve a time-sensitive goal, rather than a permanent loss."
+      },
+      {
+        "bias": "Present Bias",
+        "source": "additional_biases",
+        "mitigation": "The 'Pay Yourself First' heuristic, combined with the phased approach (emergency fund first, then college savings), breaks down the long-term goal into immediate, actionable steps. Automating contributions helps overcome the tendency to de-prioritize future goals for immediate gratification."
+      },
+      {
+        "bias": "Optimism Bias",
+        "source": "additional_biases",
+        "mitigation": "The plan provides a concrete projected savings amount ($71,055) based on current contributions and a realistic return rate, which helps ground expectations about what can be achieved. The gap analysis explicitly states that this amount may not fully cover college costs for two children, counteracting overestimation of future savings or underestimation of costs."
+      }
+    ],
+    "assumptions": [
+      "Assumed gross annual income of $60,000 for 'moderate income'.",
+      "Assumed an effective tax rate of 20% for after-tax income calculation, resulting in $4,000/month.",
+      "Assumed an age of 40 for 'middle-aged' for Age-Based Asset Allocation.",
+      "Assumed a standard 401(k) employer match of 50% of contributions up to 6% of salary.",
+      "Assumed essential monthly expenses are 50% of after-tax income ($2,000/month) for emergency fund calculation.",
+      "Assumed the $300/month 401(k) contribution is made pre-tax and is already factored into the $4,000/month after-tax income used for the 50/30/20 rule.",
+      "Assumed a 7% average annual return for college savings calculations, consistent with the Rule of 72 heuristic."
+    ]
+  },
+  "agent_4": {
+    "pipeline_variant": "hierarchical",
+    "pipeline_stages_evaluated": [
+      "agent_1",
+      "agent_2",
+      "agent_3"
+    ],
+    "rubric_scores": {
+      "heuristic_alignment": {
+        "score": 5,
+        "confidence": "high",
+        "justification": "Agent 3's plan comprehensively addresses all applicable heuristics identified by Agent 1, including the additional consideration of a 529 plan, with specific and actionable recommendations. The plan clearly outlines how the 20% savings allocation from the 50/30/20 rule is phased to fund the emergency fund, then the 529 plan, and additional retirement savings.",
+        "flags": []
+      },
+      "persona_fit": {
+        "score": 5,
+        "confidence": "high",
+        "justification": "The plan is highly tailored to the persona's situation, including their moderate income, single-parent status, and specific goal of college savings for two young children. Recommendations like the emergency fund, phased savings, and 529 plan are directly relevant and appropriate for their financial context and life stage.",
+        "flags": []
+      },
+      "goal_specificity": {
+        "score": 5,
+        "confidence": "high",
+        "justification": "Agent 3's plan is exceptionally specific to the persona's college savings goal. It introduces a dedicated 529 plan, specifies a monthly contribution amount, provides a clear timeline, projects a savings total, and even includes a gap analysis regarding the adequacy of the projected funds for two children.",
+        "flags": []
+      },
+      "bias_avoidance": {
+        "score": 5,
+        "confidence": "high",
+        "justification": "Agent 3 provides concrete, specific, and actionable mitigations for every cognitive bias identified by Agent 1. The strategies are well-integrated into the financial recommendations, demonstrating a thorough understanding of how to address these behavioral challenges.",
+        "flags": []
+      },
+      "feasibility": {
+        "verdict": "feasible",
+        "confidence": "high",
+        "justification": "The plan's recommendations are realistically achievable given the persona's assumed moderate income ($4,000/month after-tax). The monthly allocations for emergency savings, college, and retirement are clearly defined and fit within the 20% savings allocation of the 50/30/20 rule. The phased approach ensures financial stability before aggressive college savings.",
+        "flags": []
+      }
+    },
+    "pipeline_integrity": {
+      "agent_1_assessment": {
+        "performed_correctly": true,
+        "issues": [
+          "Agent 1 accurately identified the persona's income tier, debt load, housing situation, and employment stability. It correctly classified all nine standard heuristics as applicable and identified relevant cognitive biases, including moving 'Present Bias' and 'Optimism Bias' to 'additional_biases' as per instructions."
+        ]
+      },
+      "agent_2_assessment": null,
+      "agent_3_assessment": {
+        "meaningfully_deviated": true,
+        "deviation_quality": "justified",
+        "issues": [
+          "Agent 3 significantly enhanced the baseline plan by introducing a goal-specific savings heuristic (529 plan), detailing a phased allocation of savings, and explicitly linking all modifications to the persona's college savings goal. The plan's gap analysis and concrete projections demonstrate a high level of optimization and strategic thinking."
+        ]
+      }
+    },
+    "overall_recommendation": "approve",
+    "revision_suggestions": [
+      "Clarify the strategy for addressing the college savings gap identified in the gap analysis, beyond just stating the potential shortfall.",
+      "Provide a more explicit trigger or timeline for revisiting the 15% retirement savings target, given the temporary reduction to prioritize college savings."
+    ],
+    "user_facing_summary": "This financial plan provides a clear and actionable roadmap to save for your children's college education over the next 10 years, starting with building a solid emergency fund. It smartly uses tax-advantaged accounts like a 529 plan and helps you prioritize your savings. While the plan sets a strong foundation, the projected savings might not cover the full cost for two children, and it temporarily adjusts your retirement contributions. Your next concrete step is to set up automatic transfers to build your emergency fund, then transition those savings into a 529 college savings plan."
+  }
+}

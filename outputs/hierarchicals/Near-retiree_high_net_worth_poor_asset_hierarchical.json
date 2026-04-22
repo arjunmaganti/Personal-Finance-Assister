@@ -1,0 +1,356 @@
+{
+  "persona": "Near-retiree, high net worth, poor asset allocation, significant credit card debt, stable job in a city",
+  "pipeline_variant": "hierarchical",
+  "routing_decisions": {
+    "persona_profiler": {
+      "called": true,
+      "reason": "Always called first"
+    },
+    "heuristic_strategist": {
+      "called": true,
+      "reason": "Standard persona with sufficient applicable heuristics"
+    },
+    "goal_optimizer": {
+      "called": true,
+      "reason": "Always called"
+    },
+    "quality_control": {
+      "called": true,
+      "reason": "Always called last"
+    }
+  },
+  "agent_1": {
+    "assumptions": {
+      "housing_situation": "Assumed 'owned' given 'high net worth' and 'stable job', though not explicitly stated. If renting, the 'Housing Costs Under 30%' heuristic would be even more critical."
+    },
+    "income_tier": "high",
+    "debt_load": "high",
+    "housing_situation": "owned",
+    "employment_stability": "stable",
+    "goal": "Eliminate significant credit card debt and rebalance investment portfolio to align with age-appropriate asset allocation for retirement.",
+    "applicable_heuristics": [
+      "50/30/20 Rule",
+      "Pay Yourself First",
+      "Emergency Fund",
+      "15% Retirement Savings",
+      "Housing Costs Under 30%",
+      "Avoid High-Interest Debt",
+      "Rule of 72",
+      "401(k) Employer Match",
+      "Age-Based Asset Allocation"
+    ],
+    "additional_considerations": [
+      {
+        "item": "Debt Avalanche/Snowball Method",
+        "rationale": "Given significant credit card debt, a structured approach to debt repayment (prioritizing highest interest first or smallest balance first) would be highly beneficial."
+      },
+      {
+        "item": "Retirement Income Planning",
+        "rationale": "As a near-retiree, understanding future income streams (Social Security, pensions, withdrawals) and creating a sustainable withdrawal strategy is crucial."
+      }
+    ],
+    "inapplicable_heuristics": [],
+    "cognitive_risks": [
+      {
+        "bias": "Anchoring",
+        "reason": "The individual might be anchored to past investment strategies or returns, making it difficult to accept the need for a new, age-appropriate asset allocation."
+      },
+      {
+        "bias": "Status Quo Bias",
+        "reason": "Despite having high net worth, the presence of 'poor asset allocation' and 'significant credit card debt' suggests a resistance to making necessary changes to their financial situation."
+      },
+      {
+        "bias": "Loss Aversion",
+        "reason": "The individual may be hesitant to sell underperforming assets or rebalance their portfolio if it means realizing losses, even if it's for long-term benefit."
+      }
+    ],
+    "additional_biases": []
+  },
+  "agent_2": {
+    "baseline_plan": [
+      {
+        "heuristic": "401(k) Employer Match",
+        "recommendation": "Contribute at least 6% of your gross salary ($750/month) to your employer-sponsored 401(k) plan to capture the full employer match of $375/month. This is the highest priority for your savings.",
+        "monthly_impact": "$1,125",
+        "priority": 1
+      },
+      {
+        "heuristic": "Emergency Fund",
+        "recommendation": "Ensure you have a liquid cash reserve equivalent to 3-6 months of essential living expenses. Based on an assumed $4,000/month in essential expenses, this means a target of $12,000 - $24,000. Prioritize building at least 1 month ($4,000) immediately to prevent new debt, then complete the full fund after high-interest credit card debt is eliminated.",
+        "monthly_impact": "Indeterminate",
+        "priority": 2
+      },
+      {
+        "heuristic": "Avoid High-Interest Debt",
+        "recommendation": "Prioritize paying off your significant credit card debt (assumed $20,000 at 20% APR) aggressively after securing your employer 401(k) match and establishing a minimum 1-month emergency fund. Allocate all available extra funds to this debt.",
+        "monthly_impact": "Indeterminate",
+        "priority": 3
+      },
+      {
+        "heuristic": "Age-Based Asset Allocation",
+        "recommendation": "Rebalance your investment portfolio to align with an age-appropriate asset allocation. For a near-retiree, using the Rule of 110 (e.g., if 60 years old, 110-60 = 50% equities), aim for approximately 50% equities and 50% fixed income to reduce volatility as you approach retirement.",
+        "monthly_impact": "N/A",
+        "priority": 4
+      },
+      {
+        "heuristic": "Pay Yourself First",
+        "recommendation": "Set up automatic transfers immediately upon receiving income to direct funds towards your 401(k) contribution (to capture the match), emergency fund contributions, and aggressive credit card debt repayment.",
+        "monthly_impact": "Indeterminate",
+        "priority": 5
+      },
+      {
+        "heuristic": "15% Retirement Savings",
+        "recommendation": "After eliminating high-interest debt and establishing a full emergency fund, ensure you are saving approximately 15% of your gross annual income ($1,875/month) towards retirement, including the employer match. Given your near-retiree status and high net worth, this may involve maintaining existing contributions or adjusting based on your specific retirement income needs.",
+        "monthly_impact": "$1,875",
+        "priority": 6
+      },
+      {
+        "heuristic": "50/30/20 Rule",
+        "recommendation": "Allocate your estimated after-tax monthly income of $9,375 as follows: $4,687.50 (50%) to needs, $2,812.50 (30%) to wants, and $1,875 (20%) to savings and debt repayment. This framework should guide your overall spending.",
+        "monthly_impact": "$1,875",
+        "priority": "N/A"
+      },
+      {
+        "heuristic": "Housing Costs Under 30%",
+        "recommendation": "As a homeowner, ensure your total housing costs (mortgage, property taxes, insurance, utilities) remain below 30% of your gross monthly income. Based on an assumed $12,500 gross monthly income, this means keeping housing costs under $3,750/month.",
+        "monthly_impact": "N/A",
+        "priority": "N/A"
+      },
+      {
+        "heuristic": "Rule of 72",
+        "recommendation": "Use the Rule of 72 as an illustrative tool to understand the power of compounding for your rebalanced investment portfolio. For example, at an assumed 7% average annual return, your money would double approximately every 10 years (72 / 7 \u2248 10.3).",
+        "monthly_impact": "N/A",
+        "priority": "N/A"
+      }
+    ],
+    "inapplicable_notes": [],
+    "assumptions": [
+      "Housing situation is 'owned' as assumed by Agent 1.",
+      "Gross Annual Income: $150,000 ($12,500/month gross).",
+      "Estimated After-Tax Monthly Income: $9,375 (assuming a 25% effective tax rate for federal, state, and FICA).",
+      "Significant Credit Card Debt: $20,000 at an assumed 20% APR.",
+      "Essential Monthly Expenses for Emergency Fund calculation: $4,000.",
+      "Employer 401(k) match: 50% of contributions up to 6% of salary."
+    ],
+    "baseline_summary": "This baseline plan provides a structured approach to address significant credit card debt and improve investment allocation for a near-retiree. It prioritizes capturing employer 401(k) match, establishing an emergency fund, and aggressively paying down high-interest debt, followed by rebalancing the investment portfolio. It does not customize recommendations based on specific retirement income needs or optimize for the persona's stated goal beyond mechanically applying standard heuristics."
+  },
+  "agent_3": {
+    "optimized_plan": [
+      {
+        "heuristic": "401(k) Employer Match",
+        "source": "baseline",
+        "recommendation": "Contribute at least 6% of your gross salary ($750/month) to your employer-sponsored 401(k) plan to capture the full employer match of $375/month. This is the highest priority for your savings.",
+        "deviation_from_baseline": null,
+        "rationale": "Capturing the full employer match provides an immediate, guaranteed return on investment, directly contributing to the 'rebalance investment portfolio to align with age-appropriate asset allocation for retirement' goal by maximizing tax-advantaged growth.",
+        "monthly_impact": "$1,125",
+        "priority": 1
+      },
+      {
+        "heuristic": "Emergency Fund",
+        "source": "baseline",
+        "recommendation": "Ensure you have a liquid cash reserve equivalent to 3-6 months of essential living expenses. Based on an assumed $4,000/month in essential expenses, this means a target of $12,000 - $24,000. Prioritize building at least 1 month ($4,000) immediately to prevent new debt, then complete the full fund after high-interest credit card debt is eliminated.",
+        "deviation_from_baseline": null,
+        "rationale": "Establishing a minimum emergency fund is crucial to prevent new high-interest debt from accumulating due to unexpected expenses, directly supporting the 'eliminate significant credit card debt' goal by breaking the debt cycle.",
+        "monthly_impact": "Indeterminate",
+        "priority": 2
+      },
+      {
+        "heuristic": "50/30/20 Rule",
+        "source": "modified",
+        "recommendation": "Adjust your monthly budget to aggressively tackle debt. Allocate your estimated after-tax monthly income of $9,375 as follows: 50% ($4,687.50) to needs, 15% ($1,406.25) to wants, and 35% ($3,281.25) to savings and debt repayment. This revised framework prioritizes rapid debt elimination.",
+        "deviation_from_baseline": "Reduced 'wants' allocation from 30% to 15% and increased 'savings and debt repayment' allocation from 20% to 35% to free up an additional $1,406.25/month for debt repayment.",
+        "rationale": "Given the 'significant credit card debt' and 'high income' of a near-retiree, aggressively reallocating funds from discretionary 'wants' to debt repayment is essential to rapidly 'eliminate significant credit card debt' before retirement.",
+        "monthly_impact": "$3,281.25",
+        "priority": 3
+      },
+      {
+        "heuristic": "Avoid High-Interest Debt",
+        "source": "modified",
+        "recommendation": "After securing your employer 401(k) match and establishing a minimum 1-month emergency fund, aggressively pay off your $20,000 credit card debt (assumed 20% APR). Direct approximately $2,500 per month from your 'savings and debt repayment' budget (as per the modified 50/15/35 rule) using the Debt Avalanche method (highest interest rate first) until the debt is fully eliminated.",
+        "deviation_from_baseline": "Specified a concrete monthly debt payment of approximately $2,500 by leveraging the increased 'savings and debt repayment' allocation from the modified 50/30/20 rule, and explicitly recommended the Debt Avalanche method.",
+        "rationale": "Aggressively paying down the 20% APR credit card debt with a specific monthly allocation is the most mathematically efficient way to 'eliminate significant credit card debt', providing a guaranteed 'return' far exceeding any investment, which is critical for a near-retiree.",
+        "monthly_impact": "-$2,500",
+        "priority": 4
+      },
+      {
+        "heuristic": "Pay Yourself First",
+        "source": "baseline",
+        "recommendation": "Set up automatic transfers immediately upon receiving income to direct funds towards your 401(k) contribution (to capture the match), emergency fund contributions, and aggressive credit card debt repayment.",
+        "deviation_from_baseline": null,
+        "rationale": "Automating transfers ensures consistent progress towards both 'eliminating significant credit card debt' and building retirement savings, preventing discretionary spending from derailing these critical goals for a near-retiree.",
+        "monthly_impact": "Indeterminate",
+        "priority": 5
+      },
+      {
+        "heuristic": "Age-Based Asset Allocation",
+        "source": "modified",
+        "recommendation": "Given your 'poor asset allocation' and 'near-retiree' status, immediately review and rebalance your investment portfolio. Using the Rule of 110 (e.g., if 60 years old, aim for 50% equities and 50% fixed income), adjust your holdings to reduce volatility. Be mindful of potential capital gains taxes and consider tax-loss harvesting opportunities during this rebalancing. This is crucial for aligning your portfolio with your retirement timeline.",
+        "deviation_from_baseline": "Added explicit instructions to review current holdings, consider tax implications (capital gains, tax-loss harvesting), and emphasized the urgency for a near-retiree, implicitly addressing potential cognitive biases like Loss Aversion and Status Quo Bias.",
+        "rationale": "This directly addresses the goal to 'rebalance investment portfolio to align with age-appropriate asset allocation for retirement', ensuring the portfolio is de-risked and optimized for income generation and capital preservation as retirement approaches.",
+        "monthly_impact": "N/A",
+        "priority": 6
+      },
+      {
+        "heuristic": "New: Retirement Income Planning",
+        "source": "new",
+        "recommendation": "As a near-retiree with high net worth, begin comprehensive retirement income planning. This includes projecting future income streams (Social Security, pension if applicable, investment withdrawals), determining a sustainable withdrawal rate from your rebalanced portfolio, and optimizing tax strategies for retirement distributions. Consider consulting a fee-only financial planner for this complex stage.",
+        "deviation_from_baseline": "This is a new recommendation not present in the baseline plan, but identified as a critical 'additional consideration' for a near-retiree.",
+        "rationale": "This directly supports the 'rebalance investment portfolio to align with age-appropriate asset allocation for retirement' goal by translating the rebalanced portfolio into a concrete, sustainable income stream, which is paramount for a near-retiree with high net worth.",
+        "monthly_impact": "N/A",
+        "priority": 7
+      },
+      {
+        "heuristic": "15% Retirement Savings",
+        "source": "modified",
+        "recommendation": "While the 15% rule is a general guideline, as a near-retiree with high net worth, your focus should be on maximizing 'catch-up' contributions to your 401(k) (if over 50) and potentially an IRA. After eliminating high-interest debt and establishing a full emergency fund, direct any remaining surplus from your 35% savings/debt bucket towards these catch-up contributions to further bolster your retirement assets and optimize tax advantages before retirement.",
+        "deviation_from_baseline": "Shifted the focus from a general 15% savings rate to maximizing age-specific 'catch-up' contributions, acknowledging the persona's 'near-retiree' status and 'high net worth' to optimize tax-advantaged growth in the final years before retirement.",
+        "rationale": "This modification directly supports the 'rebalance investment portfolio to align with age-appropriate asset allocation for retirement' goal by ensuring the persona leverages all available mechanisms to maximize their retirement nest egg in the critical years leading up to retirement.",
+        "monthly_impact": "Variable, based on catch-up limits",
+        "priority": 8
+      },
+      {
+        "heuristic": "Housing Costs Under 30%",
+        "source": "baseline",
+        "recommendation": "As a homeowner, ensure your total housing costs (mortgage, property taxes, insurance, utilities) remain below 30% of your gross monthly income. Based on an assumed $12,500 gross monthly income, this means keeping housing costs under $3,750/month.",
+        "deviation_from_baseline": null,
+        "rationale": "Maintaining housing costs below 30% of gross income ensures sufficient cash flow remains available for aggressive debt repayment and retirement savings, directly supporting both aspects of the persona's financial goal.",
+        "monthly_impact": "N/A",
+        "priority": "N/A"
+      },
+      {
+        "heuristic": "Rule of 72",
+        "source": "baseline",
+        "recommendation": "Use the Rule of 72 as an illustrative tool to understand the power of compounding for your rebalanced investment portfolio. For example, at an assumed 7% average annual return, your money would double approximately every 10 years (72 / 7 \u2248 10.3).",
+        "deviation_from_baseline": null,
+        "rationale": "Understanding the Rule of 72 helps reinforce the long-term benefits of a properly 'rebalanced investment portfolio' and the importance of sustained growth, even as a near-retiree, to ensure longevity of funds.",
+        "monthly_impact": "N/A",
+        "priority": "N/A"
+      }
+    ],
+    "goal_alignment": {
+      "goal": "Eliminate significant credit card debt and rebalance investment portfolio to align with age-appropriate asset allocation for retirement.",
+      "addressed_by": [
+        "401(k) Employer Match",
+        "Emergency Fund",
+        "50/30/20 Rule",
+        "Avoid High-Interest Debt",
+        "Pay Yourself First",
+        "Age-Based Asset Allocation",
+        "New: Retirement Income Planning",
+        "15% Retirement Savings",
+        "Housing Costs Under 30%",
+        "Rule of 72"
+      ],
+      "projected_timeline": "The plan projects the elimination of $20,000 in credit card debt (at 20% APR) within approximately 8-9 months with a dedicated $2,500 monthly payment. Portfolio rebalancing can begin immediately and be substantially completed within 1-3 months, with ongoing adjustments. Initial retirement income planning steps can be taken within 3-6 months. Overall, the primary goals are expected to be substantially addressed within 9-12 months.",
+      "gap_analysis": "The plan provides a robust framework for debt elimination and portfolio rebalancing. However, it does not include specific investment product recommendations (which is outside the scope of this system) or a detailed, personalized retirement withdrawal strategy, which would require more granular financial data and potentially a dedicated financial advisor. It also assumes the persona's willingness to significantly reduce discretionary spending."
+    },
+    "additional_considerations_incorporated": [
+      {
+        "item": "Debt Avalanche/Snowball Method",
+        "incorporated": true,
+        "application": "The Debt Avalanche method was explicitly recommended for paying off the high-interest credit card debt, leveraging the increased allocation from the modified 50/30/20 rule."
+      },
+      {
+        "item": "Retirement Income Planning",
+        "incorporated": true,
+        "application": "A new heuristic, 'Retirement Income Planning', was added to guide the near-retiree in projecting income streams, determining withdrawal rates, and optimizing tax strategies for retirement distributions."
+      }
+    ],
+    "cognitive_risk_mitigations": [
+      {
+        "bias": "Anchoring",
+        "mitigation": "When rebalancing the investment portfolio, explicitly focus on the current market value and future potential of assets, rather than being anchored to past purchase prices or historical highs. The decision to sell or hold should be based on forward-looking analysis for retirement readiness, not on breaking even.",
+        "source": "cognitive_risks"
+      },
+      {
+        "bias": "Status Quo Bias",
+        "mitigation": "The plan explicitly recommends a significant shift in budgeting (50/15/35 rule) and immediate portfolio rebalancing. Quantify the cost of inaction (e.g., the high interest paid on credit card debt, the opportunity cost of suboptimal asset allocation) to motivate breaking from the current state.",
+        "source": "cognitive_risks"
+      },
+      {
+        "bias": "Loss Aversion",
+        "mitigation": "When rebalancing the portfolio, reframe any necessary selling of underperforming assets as 'tax-loss harvesting' or 'optimizing for future gains' rather than 'realizing a loss'. Emphasize that holding onto suboptimal assets due to fear of loss is a greater long-term risk for a near-retiree than strategically adjusting the portfolio.",
+        "source": "cognitive_risks"
+      }
+    ],
+    "assumptions": [
+      "Housing situation is 'owned' as assumed by Agent 1.",
+      "Gross Annual Income: $150,000 ($12,500/month gross).",
+      "Estimated After-Tax Monthly Income: $9,375 (assuming a 25% effective tax rate for federal, state, and FICA).",
+      "Significant Credit Card Debt: $20,000 at an assumed 20% APR.",
+      "Essential Monthly Expenses for Emergency Fund calculation: $4,000.",
+      "Employer 401(k) match: 50% of contributions up to 6% of salary.",
+      "Persona is willing to significantly reduce discretionary 'wants' spending to accelerate debt repayment.",
+      "Persona is over 50 years old to qualify for catch-up contributions (implied by 'near-retiree')."
+    ]
+  },
+  "agent_4": {
+    "pipeline_variant": "hierarchical",
+    "pipeline_stages_evaluated": [
+      "agent_1",
+      "agent_2",
+      "agent_3"
+    ],
+    "rubric_scores": {
+      "heuristic_alignment": {
+        "score": 5,
+        "confidence": "high",
+        "justification": "Agent 3's optimized plan addresses all applicable heuristics identified by Agent 1 with specific, actionable recommendations. It also successfully incorporates the 'additional considerations' (Debt Avalanche, Retirement Income Planning) as new or modified heuristics, demonstrating a comprehensive application of the initial analysis.",
+        "flags": []
+      },
+      "persona_fit": {
+        "score": 5,
+        "confidence": "high",
+        "justification": "The plan is exceptionally well-tailored to the persona's specific constraints and situation: near-retiree, high net worth, poor asset allocation, and significant credit card debt. Recommendations like aggressive debt repayment, age-based asset allocation with tax considerations, and dedicated retirement income planning directly address these unique aspects.",
+        "flags": []
+      },
+      "goal_specificity": {
+        "score": 5,
+        "confidence": "high",
+        "justification": "Agent 3's plan directly and concretely serves the persona's stated goal. It provides specific dollar amounts ($2,500/month for debt), methods (Debt Avalanche, Rule of 110), and a projected timeline (8-9 months for debt elimination), clearly prioritizing and detailing how each part of the goal will be achieved.",
+        "flags": []
+      },
+      "bias_avoidance": {
+        "score": 5,
+        "confidence": "high",
+        "justification": "Agent 3 provides concrete and specific mitigations for each cognitive bias identified by Agent 1 (Anchoring, Status Quo Bias, Loss Aversion). The mitigations are actionable and directly integrated into the recommendations, such as reframing losses as tax-loss harvesting or quantifying the cost of inaction.",
+        "flags": []
+      },
+      "feasibility": {
+        "verdict": "needs_revision",
+        "confidence": "medium",
+        "justification": "While the monthly budget allocations are internally consistent (50/15/35 rule), the sequencing of building the initial emergency fund ($4,000) before aggressive debt repayment ($2,500/month) is not fully reconciled with the stated 8-9 month debt elimination timeline. If the emergency fund is built from monthly income, it would delay the start of the aggressive debt payments, making the timeline slightly optimistic. The plan doesn't explicitly state if the high net worth could provide immediate liquidity for the emergency fund.",
+        "flags": [
+          "Ambiguity in emergency fund funding source and its impact on the debt elimination timeline."
+        ]
+      }
+    },
+    "pipeline_integrity": {
+      "agent_1_assessment": {
+        "performed_correctly": true,
+        "issues": [
+          "Agent 1 accurately identified the persona's characteristics, applicable heuristics, and relevant cognitive biases, providing a solid foundation for the subsequent planning stages."
+        ]
+      },
+      "agent_2_assessment": {
+        "stayed_in_lane": true,
+        "issues": [
+          "Agent 2 successfully generated a mechanical baseline plan by strictly applying the heuristics provided by Agent 1, without introducing any optimizations or new considerations, adhering perfectly to its role."
+        ]
+      },
+      "agent_3_assessment": {
+        "meaningfully_deviated": true,
+        "deviation_quality": "justified",
+        "issues": [
+          "Agent 3 effectively optimized the baseline plan by tailoring recommendations to the persona's specific goals and situation, incorporating additional considerations, and providing clear rationales for all deviations."
+        ]
+      }
+    },
+    "overall_recommendation": "revise",
+    "revision_suggestions": [
+      "Clarify the funding source for the initial 1-month emergency fund (e.g., from existing liquid assets or monthly income) and explicitly state how this impacts the start date and overall timeline for aggressive credit card debt repayment.",
+      "Adjust the projected debt elimination timeline to accurately reflect the time taken to establish the minimum emergency fund if it is to be built from monthly income."
+    ],
+    "user_facing_summary": "This plan offers a strong strategy to tackle your credit card debt and get your investments ready for retirement. It sets up a clear budget to pay down your debt quickly and helps you adjust your savings to best suit your age. One small area for improvement is to clarify how you'll build your emergency savings while also paying off debt, as this might slightly change the timeline for becoming debt-free. Your next step should be to review how you plan to fund your emergency savings to ensure it aligns with your debt repayment goals."
+  }
+}

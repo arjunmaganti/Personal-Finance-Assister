@@ -1,0 +1,338 @@
+{
+  "persona": "Young Black skilled freelance worker, medium COL city, inconsistent income low to mid, no employer 401k, wants to stabilize",
+  "pipeline_variant": "hierarchical",
+  "routing_decisions": {
+    "persona_profiler": {
+      "called": true,
+      "reason": "Always called first"
+    },
+    "heuristic_strategist": {
+      "called": true,
+      "reason": "Standard persona with sufficient applicable heuristics"
+    },
+    "goal_optimizer": {
+      "called": true,
+      "reason": "Always called"
+    },
+    "quality_control": {
+      "called": true,
+      "reason": "Always called last"
+    }
+  },
+  "agent_1": {
+    "income_tier": "mid",
+    "debt_load": "none",
+    "housing_situation": "renting",
+    "employment_stability": "gig",
+    "goal": "Build a 3-6 month emergency fund to stabilize finances given inconsistent income, and establish a consistent savings habit.",
+    "applicable_heuristics": [
+      "50/30/20 Rule",
+      "Pay Yourself First",
+      "Emergency Fund",
+      "15% Retirement Savings",
+      "Housing Costs Under 30%",
+      "Avoid High-Interest Debt",
+      "Rule of 72",
+      "Age-Based Asset Allocation"
+    ],
+    "additional_considerations": [
+      {
+        "item": "Income Smoothing/Buffer Account",
+        "rationale": "Given inconsistent income, creating a buffer account to smooth out monthly cash flow is crucial for financial stability and effective budgeting."
+      }
+    ],
+    "inapplicable_heuristics": [
+      {
+        "rule": "401(k) Employer Match",
+        "reason": "The persona explicitly states 'no employer 401k', making this heuristic irrelevant."
+      }
+    ],
+    "cognitive_risks": [
+      {
+        "bias": "Anchoring",
+        "reason": "The persona might anchor their financial expectations or spending habits to a particularly high or low income month, rather than an average or realistic projection for inconsistent income."
+      },
+      {
+        "bias": "Availability Bias",
+        "reason": "Recent income fluctuations (e.g., a very good or very bad month) might disproportionately influence their perception of their overall financial situation and future planning, leading to skewed decisions."
+      },
+      {
+        "bias": "Status Quo Bias",
+        "reason": "The persona might be reluctant to change existing spending habits or implement new budgeting strategies, even if their inconsistent income necessitates a more dynamic and disciplined approach."
+      },
+      {
+        "bias": "Loss Aversion",
+        "reason": "Given inconsistent income, the fear of losing money (e.g., through investments or unexpected expenses) might make them overly cautious, hindering progress towards long-term financial goals or taking calculated risks."
+      }
+    ],
+    "additional_biases": []
+  },
+  "agent_2": {
+    "baseline_plan": [
+      {
+        "heuristic": "Emergency Fund",
+        "recommendation": "Build a liquid cash reserve equivalent to 6 months of essential living expenses. Based on an assumed $2,000/month in needs (from the 50/30/20 rule), this target is $12,000. Prioritize funding this account before other savings or investments.",
+        "monthly_impact": "$800",
+        "priority": 1
+      },
+      {
+        "heuristic": "Pay Yourself First",
+        "recommendation": "Given inconsistent income, set up an automatic transfer of 20% of each income deposit to a dedicated high-yield savings account immediately upon receipt. This ensures consistent savings towards your emergency fund and future goals.",
+        "monthly_impact": "$800",
+        "priority": 2
+      },
+      {
+        "heuristic": "Avoid High-Interest Debt",
+        "recommendation": "Maintain your current debt-free status. Should any high-interest debt (e.g., credit card balances above 7-8% APR) arise, prioritize paying it off aggressively before directing funds to other savings or investments beyond your emergency fund.",
+        "monthly_impact": "$0",
+        "priority": 3
+      },
+      {
+        "heuristic": "15% Retirement Savings",
+        "recommendation": "Once your 6-month emergency fund is fully established, begin allocating 15% of your gross income towards retirement savings. Based on an assumed average gross income of $5,000/month, this amounts to $750/month. Consider a Roth IRA or Solo 401(k) given your freelance status.",
+        "monthly_impact": "$750",
+        "priority": 4
+      },
+      {
+        "heuristic": "50/30/20 Rule",
+        "recommendation": "On average, allocate 50% of your after-tax income to needs, 30% to wants, and 20% to savings and debt repayment. Based on an assumed average after-tax income of $4,000/month, this means: $2,000 for needs, $1,200 for wants, and $800 for savings/debt.",
+        "monthly_impact": "$800",
+        "priority": "N/A"
+      },
+      {
+        "heuristic": "Housing Costs Under 30%",
+        "recommendation": "Ensure your total housing costs (rent + utilities + renter's insurance) remain below 30% of your gross monthly income. Based on an assumed average gross income of $5,000/month, this means keeping housing costs under $1,500/month.",
+        "monthly_impact": "N/A",
+        "priority": "N/A"
+      },
+      {
+        "heuristic": "Rule of 72",
+        "recommendation": "Use the Rule of 72 to understand the power of compounding for your long-term investments. For example, at an assumed average annual return of 7%, your money would approximately double every 10 years (72 / 7 \u2248 10.3).",
+        "monthly_impact": "N/A",
+        "priority": "N/A"
+      },
+      {
+        "heuristic": "Age-Based Asset Allocation",
+        "recommendation": "For your investment portfolio (once established), consider an age-based asset allocation. Using the 'Rule of 110' for moderate risk and an assumed age of 30, aim for approximately 80% in equities (stocks) and 20% in fixed income (bonds).",
+        "monthly_impact": "N/A",
+        "priority": "N/A"
+      }
+    ],
+    "inapplicable_notes": [
+      {
+        "rule": "401(k) Employer Match",
+        "reason": "The persona explicitly states 'no employer 401k', making this heuristic irrelevant."
+      }
+    ],
+    "assumptions": [
+      "Assumed average after-tax monthly income of $4,000 for calculations.",
+      "Assumed average gross monthly income of $5,000 for calculations (implying ~20% tax rate).",
+      "Assumed current housing costs are $1,200/month, which is within the 30% gross income guideline.",
+      "Assumed persona's age is 30 for asset allocation and retirement planning heuristics.",
+      "Assumed a 7% average annual return for Rule of 72 illustration."
+    ],
+    "baseline_summary": "This baseline plan focuses on establishing financial stability through a robust emergency fund and consistent savings habits, using a flexible budgeting framework adapted for inconsistent income. It also outlines initial steps for long-term retirement savings and investment allocation. The plan does not address specific investment products, tax optimization strategies, or detailed customization to the persona's unique circumstances or specific financial goals beyond the foundational heuristics."
+  },
+  "agent_3": {
+    "optimized_plan": [
+      {
+        "heuristic": "Emergency Fund",
+        "source": "modified",
+        "recommendation": "Build a liquid cash reserve equivalent to 6 months of essential living expenses, targeting $12,000 (based on an assumed $2,000/month in needs). This fund is critical for stabilizing finances given your inconsistent freelance income. Prioritize funding this account in a high-yield savings account before any other savings or investments.",
+        "deviation_from_baseline": "Clarified the importance of a 6-month fund specifically for inconsistent income and specified using a high-yield savings account for optimal growth and accessibility.",
+        "rationale": "Directly addresses the persona's goal of building an emergency fund to stabilize finances given inconsistent income, ensuring a robust buffer against income fluctuations and unexpected expenses.",
+        "monthly_impact": "$800",
+        "priority": 1
+      },
+      {
+        "heuristic": "Pay Yourself First",
+        "source": "baseline",
+        "recommendation": "Given inconsistent income, set up an automatic transfer of 20% of each income deposit to a dedicated high-yield savings account immediately upon receipt. This ensures consistent savings towards your emergency fund and future goals.",
+        "deviation_from_baseline": null,
+        "rationale": "Directly supports the persona's goal of establishing a consistent savings habit, especially crucial with inconsistent income, by automating savings before other expenses.",
+        "monthly_impact": "$800",
+        "priority": 2
+      },
+      {
+        "heuristic": "Income Smoothing/Buffer Account",
+        "source": "new",
+        "recommendation": "Establish a separate 'Income Smoothing' or 'Buffer' account. When you have a higher-income month, transfer excess funds into this account. During lower-income months, draw from this account to cover your essential needs and maintain your consistent savings contributions. Aim to build this buffer to cover at least 1-2 months of essential expenses ($2,000-$4,000) in addition to your emergency fund.",
+        "deviation_from_baseline": "This is a new recommendation not explicitly in the baseline plan, but it directly addresses the 'Income Smoothing/Buffer Account' additional consideration from Agent 1 and is critical for managing inconsistent income.",
+        "rationale": "Directly addresses the core challenge of inconsistent income, providing a practical mechanism to stabilize monthly cash flow and ensure consistent progress towards the emergency fund and savings habit, which is the persona's primary goal.",
+        "monthly_impact": "Variable, based on income",
+        "priority": 1
+      },
+      {
+        "heuristic": "Avoid High-Interest Debt",
+        "source": "baseline",
+        "recommendation": "Maintain your current debt-free status. Should any high-interest debt (e.g., credit card balances above 7-8% APR) arise, prioritize paying it off aggressively before directing funds to other savings or investments beyond your emergency fund.",
+        "deviation_from_baseline": null,
+        "rationale": "Maintaining a debt-free status is fundamental to stabilizing finances and prevents future obstacles to building the emergency fund and consistent savings, directly supporting the persona's goal.",
+        "monthly_impact": "$0",
+        "priority": 3
+      },
+      {
+        "heuristic": "15% Retirement Savings",
+        "source": "baseline",
+        "recommendation": "Once your 6-month emergency fund is fully established, begin allocating 15% of your gross income towards retirement savings. Based on an assumed average gross income of $5,000/month, this amounts to $750/month. Consider a Roth IRA or Solo 401(k) given your freelance status.",
+        "deviation_from_baseline": null,
+        "rationale": "While the immediate goal is stabilization, establishing a clear path for retirement savings *after* the emergency fund is built provides a crucial next step for long-term financial security, aligning with the broader aim of financial stability.",
+        "monthly_impact": "$750",
+        "priority": 4
+      },
+      {
+        "heuristic": "50/30/20 Rule",
+        "source": "modified",
+        "recommendation": "Adopt the 50/30/20 rule as a flexible guideline for your average monthly spending: 50% for needs, 30% for wants, and 20% for savings (which will primarily go to your emergency fund initially). Given inconsistent income, track your spending closely and adjust your 'wants' category dynamically based on your current income flow to ensure needs are always met and savings targets are hit. On an assumed average after-tax income of $4,000/month, this means aiming for $2,000 for needs, $1,200 for wants, and $800 for savings/debt.",
+        "deviation_from_baseline": "Emphasized flexibility, dynamic adjustment of 'wants' based on income flow, and the importance of tracking for inconsistent income, to better adapt the rule to the persona's freelance situation.",
+        "rationale": "Provides a structured framework for managing expenses that is adaptable to inconsistent income, directly supporting the goal of stabilizing finances and establishing consistent savings by ensuring needs are met and savings are prioritized.",
+        "monthly_impact": "$800",
+        "priority": "N/A"
+      },
+      {
+        "heuristic": "Housing Costs Under 30%",
+        "source": "baseline",
+        "recommendation": "Ensure your total housing costs (rent + utilities + renter's insurance) remain below 30% of your gross monthly income. Based on an assumed average gross income of $5,000/month, this means keeping housing costs under $1,500/month.",
+        "deviation_from_baseline": null,
+        "rationale": "Keeping housing costs low is crucial for a persona with inconsistent income, as it reduces fixed expenses and provides more flexibility to meet the goal of building an emergency fund and stabilizing finances.",
+        "monthly_impact": "N/A",
+        "priority": "N/A"
+      },
+      {
+        "heuristic": "Rule of 72",
+        "source": "baseline",
+        "recommendation": "Use the Rule of 72 to understand the power of compounding for your long-term investments. For example, at an assumed average annual return of 7%, your money would approximately double every 10 years (72 / 7 \u2248 10.3).",
+        "deviation_from_baseline": null,
+        "rationale": "While not directly addressing the immediate goal, understanding the Rule of 72 provides motivation for long-term savings and investment once the emergency fund is established, reinforcing the importance of consistent savings habits over time.",
+        "monthly_impact": "N/A",
+        "priority": "N/A"
+      },
+      {
+        "heuristic": "Age-Based Asset Allocation",
+        "source": "baseline",
+        "recommendation": "For your investment portfolio (once established), consider an age-based asset allocation. Using the 'Rule of 110' for moderate risk and an assumed age of 30, aim for approximately 80% in equities (stocks) and 20% in fixed income (bonds).",
+        "deviation_from_baseline": null,
+        "rationale": "Similar to the Rule of 72, this provides a forward-looking guide for investment strategy once the immediate goal of financial stabilization and emergency fund building is achieved, supporting the broader aim of long-term financial security.",
+        "monthly_impact": "N/A",
+        "priority": "N/A"
+      }
+    ],
+    "goal_alignment": {
+      "goal": "Build a 3-6 month emergency fund to stabilize finances given inconsistent income, and establish a consistent savings habit.",
+      "addressed_by": [
+        "Emergency Fund",
+        "Pay Yourself First",
+        "Income Smoothing/Buffer Account",
+        "50/30/20 Rule",
+        "Avoid High-Interest Debt",
+        "Housing Costs Under 30%"
+      ],
+      "projected_timeline": "Based on an average monthly savings of $800 towards the $12,000 emergency fund target, it would take approximately 15 months ($12,000 / $800). However, given inconsistent income and the need to first establish an income smoothing buffer, a more realistic timeline to fully achieve the 6-month emergency fund is 18-24 months.",
+      "gap_analysis": "The plan provides a strong foundation for financial stabilization and initial savings. It does not, however, delve into specific investment product recommendations (beyond account types), advanced tax optimization strategies for freelancers, or methods for actively increasing income, which could further accelerate goal achievement and long-term wealth building."
+    },
+    "additional_considerations_incorporated": [
+      {
+        "item": "Income Smoothing/Buffer Account",
+        "incorporated": true,
+        "application": "A new recommendation was added to establish a dedicated 'Income Smoothing' account to manage inconsistent income fluctuations and ensure consistent savings contributions, directly addressing this consideration."
+      }
+    ],
+    "cognitive_risk_mitigations": [
+      {
+        "bias": "Anchoring",
+        "source": "cognitive_risks",
+        "mitigation": "To counteract anchoring to specific high or low income months, consistently track your average monthly income over the last 6-12 months. Base your 50/30/20 budget and savings targets on this average, and use the 'Income Smoothing' account to buffer against monthly fluctuations, rather than adjusting your core plan based on a single month's earnings."
+      },
+      {
+        "bias": "Availability Bias",
+        "source": "cognitive_risks",
+        "mitigation": "When making financial decisions, refer to your long-term average income and the progress towards your emergency fund, rather than being swayed by the emotional impact of a recent very good or very bad income month. The 'Income Smoothing' account is designed to reduce the salience of these short-term fluctuations."
+      },
+      {
+        "bias": "Status Quo Bias",
+        "source": "cognitive_risks",
+        "mitigation": "Actively review your spending and savings habits monthly. Quantify the benefit of adopting the 'Pay Yourself First' and 'Income Smoothing' strategies by calculating how much faster you are building your emergency fund and how much more stable your cash flow has become, making the cost of inaction (remaining in the status quo) explicit."
+      },
+      {
+        "bias": "Loss Aversion",
+        "source": "cognitive_risks",
+        "mitigation": "The primary goal of building a robust 6-month emergency fund and an income smoothing buffer is to mitigate the risk of unexpected expenses and income dips. By establishing these safety nets first, you reduce the 'loss' potential from market volatility when you eventually begin investing, allowing for more confident long-term planning."
+      }
+    ],
+    "assumptions": [
+      "Assumed average after-tax monthly income of $4,000 for calculations.",
+      "Assumed average gross monthly income of $5,000 for calculations (implying ~20% tax rate).",
+      "Assumed current housing costs are $1,200/month, which is within the 30% gross income guideline.",
+      "Assumed persona's age is 30 for asset allocation and retirement planning heuristics.",
+      "Assumed a 7% average annual return for Rule of 72 illustration.",
+      "Assumed the persona is able to consistently save an average of $800/month, utilizing the income smoothing account to manage fluctuations."
+    ]
+  },
+  "agent_4": {
+    "pipeline_variant": "hierarchical",
+    "pipeline_stages_evaluated": [
+      "agent_1",
+      "agent_2",
+      "agent_3"
+    ],
+    "rubric_scores": {
+      "heuristic_alignment": {
+        "score": 5,
+        "confidence": "high",
+        "justification": "All applicable heuristics from Agent 1, plus the crucial 'Income Smoothing' consideration, are present and well-integrated with specific, actionable recommendations tailored to the persona's inconsistent income. No heuristics were missed or misapplied.",
+        "flags": []
+      },
+      "persona_fit": {
+        "score": 5,
+        "confidence": "high",
+        "justification": "The plan is highly tailored to the persona's specific constraints, particularly the inconsistent freelance income, by introducing an 'Income Smoothing' account and adapting budgeting rules for flexibility. It also correctly addresses the 'no employer 401k' situation. No recommendations ignore or contradict the persona's constraints.",
+        "flags": []
+      },
+      "goal_specificity": {
+        "score": 5,
+        "confidence": "high",
+        "justification": "The plan directly and concretely addresses the persona's stated goal. It provides specific dollar targets for the emergency fund and buffer, outlines a clear timeline, and integrates strategies like 'Pay Yourself First' and 'Income Smoothing' to establish consistent savings despite inconsistent income.",
+        "flags": []
+      },
+      "bias_avoidance": {
+        "score": 5,
+        "confidence": "high",
+        "justification": "Agent 3 provides specific, actionable mitigations for each cognitive bias identified by Agent 1. The mitigations are well-integrated into the financial recommendations, offering practical strategies to counteract potential behavioral pitfalls.",
+        "flags": []
+      },
+      "feasibility": {
+        "verdict": "feasible",
+        "confidence": "high",
+        "justification": "The plan's recommendations are realistically achievable, especially with the introduction of the 'Income Smoothing/Buffer Account' to manage inconsistent income. The monthly allocations are consistent with the assumed average income, and the timeline for the emergency fund is reasonable. Behavioral assumptions are addressed through flexibility and tracking.",
+        "flags": []
+      }
+    },
+    "pipeline_integrity": {
+      "agent_1_assessment": {
+        "performed_correctly": true,
+        "issues": [
+          "Agent 1 accurately identified the persona's key financial characteristics and correctly selected applicable heuristics, including a crucial additional consideration for inconsistent income. The identified cognitive risks were highly relevant to the persona's situation."
+        ]
+      },
+      "agent_2_assessment": {
+        "stayed_in_lane": true,
+        "issues": [
+          "Agent 2 successfully generated a baseline plan by applying all applicable heuristics identified by Agent 1, providing clear recommendations and monthly impacts based on reasonable assumptions. It correctly omitted the 'Income Smoothing/Buffer Account' as it was an 'additional consideration' rather than a standard heuristic."
+        ]
+      },
+      "agent_3_assessment": {
+        "meaningfully_deviated": true,
+        "deviation_quality": "justified",
+        "issues": [
+          "Agent 3 significantly optimized the baseline plan by introducing the critical 'Income Smoothing/Buffer Account' and adapting existing heuristics like the 'Emergency Fund' and '50/30/20 Rule' to specifically address the persona's inconsistent income. All deviations were well-justified and directly aligned with the persona's primary goal."
+        ]
+      }
+    },
+    "overall_recommendation": "approve",
+    "revision_suggestions": [
+      "Consider adding a specific recommendation on how to calculate and regularly update the 'average monthly income' used for budgeting, as this is crucial for managing inconsistent income effectively.",
+      "Clarify the sequential relationship between funding the 'Income Smoothing/Buffer Account' and the 'Emergency Fund' to ensure optimal cash flow management during income fluctuations."
+    ],
+    "user_facing_summary": "This financial plan is well-suited for your freelance work and inconsistent income, providing a clear roadmap to financial stability. It prioritizes building a robust emergency fund and introduces a clever 'income smoothing' account to help manage your fluctuating monthly earnings. While it lays an excellent foundation, it doesn't yet cover specific investment products or advanced tax strategies. Your immediate next step should be to set up the income smoothing account and begin consistently contributing to your emergency fund."
+  }
+}

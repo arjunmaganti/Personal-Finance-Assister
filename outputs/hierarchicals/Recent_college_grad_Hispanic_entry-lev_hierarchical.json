@@ -1,0 +1,327 @@
+{
+  "persona": "Recent college grad, Hispanic, entry-level salary, renting in HCOL area on the west coast, significant student debt",
+  "pipeline_variant": "hierarchical",
+  "routing_decisions": {
+    "persona_profiler": {
+      "called": true,
+      "reason": "Always called first"
+    },
+    "heuristic_strategist": {
+      "called": true,
+      "reason": "Standard persona with sufficient applicable heuristics"
+    },
+    "goal_optimizer": {
+      "called": true,
+      "reason": "Always called"
+    },
+    "quality_control": {
+      "called": true,
+      "reason": "Always called last"
+    }
+  },
+  "agent_1": {
+    "income_tier": "mid",
+    "debt_load": "high",
+    "housing_situation": "high-cost-market",
+    "employment_stability": "stable",
+    "goal": "Prioritize managing significant student debt, establish an emergency fund, and capture any available employer 401(k) match.",
+    "applicable_heuristics": [
+      "50/30/20 Rule",
+      "Pay Yourself First",
+      "Emergency Fund",
+      "15% Retirement Savings",
+      "Avoid High-Interest Debt",
+      "401(k) Employer Match",
+      "Age-Based Asset Allocation"
+    ],
+    "additional_considerations": [
+      {
+        "item": "Debt Snowball/Avalanche Method",
+        "rationale": "Given significant student debt, a structured repayment strategy like the debt snowball or avalanche method could accelerate payoff and provide motivation."
+      }
+    ],
+    "inapplicable_heuristics": [
+      {
+        "rule": "Housing Costs Under 30%",
+        "reason": "Renting in a high-cost-of-living area on the west coast makes it highly improbable to keep housing costs under 30% of gross income."
+      },
+      {
+        "rule": "Rule of 72",
+        "reason": "While useful for understanding investment growth, the immediate priority for this persona is debt management and emergency savings, making it less directly applicable at this stage."
+      }
+    ],
+    "cognitive_risks": [
+      {
+        "bias": "Anchoring",
+        "reason": "May be anchored to pre-college spending habits or expectations of a post-college lifestyle, making it difficult to adjust to current financial realities with significant debt."
+      },
+      {
+        "bias": "Availability Bias",
+        "reason": "Could be influenced by peers' financial situations or recent news about student debt, potentially leading to suboptimal financial decisions based on readily available but not necessarily relevant information."
+      },
+      {
+        "bias": "Status Quo Bias",
+        "reason": "May be inclined to maintain current spending and saving patterns, even if they are not optimal for addressing significant student debt or building an emergency fund."
+      },
+      {
+        "bias": "Loss Aversion",
+        "reason": "May be hesitant to cut expenses or make sacrifices (e.g., reducing discretionary spending) to pay down debt, perceiving these actions as losses rather than necessary steps toward financial improvement."
+      }
+    ],
+    "additional_biases": []
+  },
+  "agent_2": {
+    "baseline_plan": [
+      {
+        "heuristic": "Emergency Fund",
+        "recommendation": "Build a liquid cash reserve of $5,655, equivalent to 3 months of your estimated essential living expenses, in an easily accessible high-yield savings account.",
+        "monthly_impact": "$754",
+        "priority": 1
+      },
+      {
+        "heuristic": "401(k) Employer Match",
+        "recommendation": "Contribute at least 6% of your gross salary, which is $290 per month, to your employer-sponsored 401(k) plan to capture the full employer match of $145 per month.",
+        "monthly_impact": "$290",
+        "priority": 2
+      },
+      {
+        "heuristic": "Pay Yourself First",
+        "recommendation": "Set up an automatic transfer of $754 per month from your checking account to your designated savings accounts (emergency fund and 401(k) contributions) immediately after each payday.",
+        "monthly_impact": "$754",
+        "priority": 3
+      },
+      {
+        "heuristic": "Avoid High-Interest Debt",
+        "recommendation": "Prioritize avoiding any new high-interest debt, such as credit card balances (typically 18-30% APR). Continue making at least minimum payments on your existing student loans, which are not considered high-interest debt by this heuristic's definition.",
+        "monthly_impact": "N/A",
+        "priority": 4
+      },
+      {
+        "heuristic": "15% Retirement Savings",
+        "recommendation": "After securing your employer's 401(k) match, contribute an additional $435 per month towards retirement savings to reach the 15% of gross income target (totaling $725/month including employer match). This can be directed to your 401(k) or a Roth IRA.",
+        "monthly_impact": "$435",
+        "priority": 5
+      },
+      {
+        "heuristic": "50/30/20 Rule",
+        "recommendation": "Allocate your estimated after-tax income of $3,770 per month as follows: $1,885 (50%) to needs, $1,131 (30%) to wants, and $754 (20%) to savings and debt repayment.",
+        "monthly_impact": "$754",
+        "priority": "N/A"
+      },
+      {
+        "heuristic": "Age-Based Asset Allocation",
+        "recommendation": "Based on an assumed age of 23 and using the Rule of 110, allocate your investment portfolio to approximately 87% equities (stocks) and 13% fixed income (bonds).",
+        "monthly_impact": "N/A",
+        "priority": "N/A"
+      }
+    ],
+    "inapplicable_notes": [
+      {
+        "rule": "Housing Costs Under 30%",
+        "reason": "Renting in a high-cost-of-living area on the west coast makes it highly improbable to keep housing costs under 30% of gross income."
+      },
+      {
+        "rule": "Rule of 72",
+        "reason": "While useful for understanding investment growth, the immediate priority for this persona is debt management and emergency savings, making it less directly applicable at this stage."
+      }
+    ],
+    "assumptions": [
+      "Assumed gross annual income of $58,000 for an entry-level position in a mid-tier income bracket for a recent college grad in an HCOL area.",
+      "Assumed average federal and state tax rate of 22% for calculating after-tax income, resulting in an estimated monthly take-home pay of $3,770.",
+      "Assumed an age of 23 for the 'recent college grad' for Age-Based Asset Allocation.",
+      "Assumed student loan debt of $40,000 at an average federal interest rate of 6.5% APR.",
+      "Assumed a common employer 401(k) match structure of 50% of contributions up to 6% of salary."
+    ],
+    "baseline_summary": "This baseline plan establishes a foundational financial structure by prioritizing the creation of an emergency fund and capturing employer-matched retirement contributions. It also provides a framework for managing monthly spending and avoiding high-interest debt. This plan does not, however, specifically optimize for the persona's stated goal of aggressively managing significant student debt beyond making minimum payments, nor does it provide detailed strategies for accelerating debt payoff."
+  },
+  "agent_3": {
+    "optimized_plan": [
+      {
+        "heuristic": "Emergency Fund",
+        "source": "baseline",
+        "recommendation": "Build a liquid cash reserve of $5,655, equivalent to 3 months of your estimated essential living expenses, in an easily accessible high-yield savings account.",
+        "deviation_from_baseline": null,
+        "rationale": "Establishing a foundational emergency fund is a core component of the persona's stated goal, providing a crucial financial safety net before aggressively tackling student debt and preventing new debt from forming during unexpected expenses.",
+        "monthly_impact": "$754",
+        "priority": 1
+      },
+      {
+        "heuristic": "401(k) Employer Match",
+        "source": "baseline",
+        "recommendation": "Contribute at least 6% of your gross salary, which is $290 per month, to your employer-sponsored 401(k) plan to capture the full employer match of $145 per month.",
+        "deviation_from_baseline": null,
+        "rationale": "Capturing the employer 401(k) match is explicitly part of the persona's goal and represents an immediate, guaranteed return on investment, making it a high priority even while managing student debt.",
+        "monthly_impact": "$290",
+        "priority": 2
+      },
+      {
+        "heuristic": "50/30/20 Rule",
+        "source": "modified",
+        "recommendation": "Adopt a modified 50/10/40 budget rule for your estimated after-tax income of $3,770 per month: allocate $1,885 (50%) to needs, $377 (10%) to wants, and $1,508 (40%) to savings and aggressive debt repayment.",
+        "deviation_from_baseline": "Reduced 'wants' allocation from 30% ($1,131) to 10% ($377) and increased 'savings and debt repayment' allocation from 20% ($754) to 40% ($1,508). 'Needs' allocation remains at 50% ($1,885).",
+        "rationale": "This significant reallocation of funds, particularly reducing discretionary 'wants,' is critical to free up substantial cash flow to prioritize managing significant student debt, which is the persona's primary goal, while still funding the emergency fund and 401(k) match.",
+        "monthly_impact": "$1,508 (for savings and debt repayment bucket)",
+        "priority": 3
+      },
+      {
+        "heuristic": "Pay Yourself First",
+        "source": "modified",
+        "recommendation": "Set up an automatic transfer of $1,508 per month from your checking account immediately after each payday. This amount will be distributed as follows: $754 to your high-yield emergency fund savings (until fully funded), $290 to your 401(k) to capture the employer match, and the remaining $464 directly to your student loan principal.",
+        "deviation_from_baseline": "Increased the automatic transfer amount from $754 to $1,508 per month to align with the modified 50/10/40 budget and explicitly include aggressive student loan payments from the outset.",
+        "rationale": "Automating a larger savings and debt repayment amount ensures consistent progress towards establishing the emergency fund, capturing the 401(k) match, and most importantly, aggressively managing significant student debt, aligning with the persona's core goals by removing decision-making friction.",
+        "monthly_impact": "$1,508 (total automated transfer)",
+        "priority": 4
+      },
+      {
+        "heuristic": "Avoid High-Interest Debt",
+        "source": "modified",
+        "recommendation": "Beyond making minimum payments (estimated $454/month), direct an additional $464 per month towards your student loan principal using the debt avalanche method, focusing on the loan with the highest interest rate first. Once your emergency fund is fully established (approximately 7.5 months), redirect the $754/month previously allocated to it, increasing your additional student loan payment to $1,218 per month. Continue to avoid any new high-interest consumer debt.",
+        "deviation_from_baseline": "Shifted focus from merely avoiding new high-interest debt and making minimum student loan payments to actively and aggressively paying down existing student loans with an initial additional $464/month, increasing to $1,218/month after the emergency fund is complete. This incorporates the debt avalanche method and replaces the baseline's recommendation to only make minimum payments on student loans.",
+        "rationale": "Aggressively managing significant student debt is the persona's primary goal. Directing substantial additional funds to the highest-interest student loan will reduce the total interest paid and accelerate the payoff timeline, freeing up future cash flow for other financial goals much sooner.",
+        "monthly_impact": "$464 (initial additional payment, increasing to $1,218 after emergency fund)",
+        "priority": 5
+      },
+      {
+        "heuristic": "15% Retirement Savings",
+        "source": "modified",
+        "recommendation": "Temporarily defer contributing beyond the employer 401(k) match towards the 15% retirement savings target. Redirect the $435 per month that would have gone to additional retirement savings towards accelerating your student loan payoff instead. Once student debt is significantly reduced or eliminated, re-evaluate and increase retirement contributions.",
+        "deviation_from_baseline": "Redirected the $435/month previously allocated to additional retirement savings (beyond the employer match) towards aggressive student loan repayment. The baseline recommended contributing this amount to retirement.",
+        "rationale": "Given the persona's primary goal to prioritize managing significant student debt, the guaranteed 'return' from eliminating 6.5% student loan interest outweighs the potential, but not guaranteed, returns from additional retirement investments at this early stage. This accelerates debt payoff, aligning directly with the persona's goal.",
+        "monthly_impact": "-$435 (redirected from retirement to debt)",
+        "priority": 6
+      },
+      {
+        "heuristic": "Age-Based Asset Allocation",
+        "source": "baseline",
+        "recommendation": "For any funds invested in your 401(k), maintain an aggressive asset allocation appropriate for your age (e.g., 87% equities, 13% bonds for a 23-year-old using the Rule of 110). This applies to the funds contributed to capture the employer match.",
+        "deviation_from_baseline": null,
+        "rationale": "While the immediate focus is debt, maintaining an appropriate asset allocation for the limited retirement funds (401k match) ensures long-term growth potential, which is a secondary but important aspect of overall financial health for a recent grad.",
+        "monthly_impact": "N/A",
+        "priority": "N/A"
+      }
+    ],
+    "goal_alignment": {
+      "goal": "Prioritize managing significant student debt, establish an emergency fund, and capture any available employer 401(k) match.",
+      "addressed_by": [
+        "Emergency Fund",
+        "401(k) Employer Match",
+        "50/30/20 Rule",
+        "Pay Yourself First",
+        "Avoid High-Interest Debt",
+        "15% Retirement Savings"
+      ],
+      "projected_timeline": "The emergency fund of $5,655 is projected to be established in approximately 7.5 months ($5,655 / $754 per month). During this period, student loan payments will be $454 (minimum) + $464 (additional from budget) + $435 (redirected from retirement) = $1,353 per month. After 7.5 months, the emergency fund is complete, and the $754/month previously allocated to it will be redirected to student debt. This increases the total student loan payment to $454 (minimum) + $464 + $435 + $754 = $2,107 per month. With an initial balance of $40,000 at 6.5% APR, this aggressive payment strategy is projected to pay off the student debt in approximately 22.5 months (7.5 months at $1,353/month, then ~15 months at $2,107/month). Therefore, the persona's primary goal of managing significant student debt and establishing an emergency fund is projected to be largely achieved within approximately 23 months.",
+      "gap_analysis": "The plan aggressively addresses the primary goal of debt management and emergency fund establishment. However, it temporarily pauses retirement savings beyond the employer match. While this is a deliberate trade-off to accelerate debt payoff, it means the persona will need to significantly increase retirement contributions once the student debt is cleared to catch up to the 15% retirement savings heuristic over the long term."
+    },
+    "additional_considerations_incorporated": [
+      {
+        "item": "Debt Snowball/Avalanche Method",
+        "incorporated": true,
+        "application": "The debt avalanche method is explicitly recommended for aggressively paying down student loans, directing additional funds to the highest interest rate loan first, which is mathematically optimal for reducing total interest paid."
+      }
+    ],
+    "cognitive_risk_mitigations": [
+      {
+        "bias": "Anchoring",
+        "source": "cognitive_risks",
+        "mitigation": "The modified 50/10/40 budget explicitly redefines acceptable spending levels, particularly for 'wants,' to counteract any anchoring to pre-college spending habits or unrealistic lifestyle expectations, grounding decisions in current financial realities and the debt payoff goal."
+      },
+      {
+        "bias": "Availability Bias",
+        "source": "cognitive_risks",
+        "mitigation": "The plan emphasizes a data-driven approach to debt repayment (avalanche method) and consistent, automated savings, counteracting emotional decisions influenced by peer situations or recent news. The rationale for redirecting retirement funds to debt is based on mathematical optimization rather than market sentiment."
+      },
+      {
+        "bias": "Status Quo Bias",
+        "source": "cognitive_risks",
+        "mitigation": "The recommendation for automatic transfers and a significantly altered budget (50/10/40) directly challenges the status quo, making the cost of inaction (prolonged debt and interest payments) explicit and providing a clear, actionable path to change existing spending and saving patterns."
+      },
+      {
+        "bias": "Loss Aversion",
+        "source": "cognitive_risks",
+        "mitigation": "The plan reframes cutting 'wants' and redirecting potential investment gains as a strategic 'gain' in the form of accelerated debt elimination and reduced interest costs, making the invisible loss of interest payments visible and motivating the persona to prioritize debt payoff over discretionary spending."
+      }
+    ],
+    "assumptions": [
+      "Assumed gross annual income of $58,000 for an entry-level position in a mid-tier income bracket for a recent college grad in an HCOL area.",
+      "Assumed average federal and state tax rate of 22% for calculating after-tax income, resulting in an estimated monthly take-home pay of $3,770.",
+      "Assumed an age of 23 for the 'recent college grad' for Age-Based Asset Allocation.",
+      "Assumed student loan debt of $40,000 at an average federal interest rate of 6.5% APR.",
+      "Assumed a common employer 401(k) match structure of 50% of contributions up to 6% of salary.",
+      "Assumed a standard 10-year repayment plan for student loans, resulting in an estimated minimum monthly payment of $454.",
+      "Assumed the persona can adhere to the strict 50/10/40 budget, particularly the reduced 'wants' allocation, given their strong goal to prioritize debt management."
+    ]
+  },
+  "agent_4": {
+    "pipeline_variant": "hierarchical",
+    "pipeline_stages_evaluated": [
+      "agent_1",
+      "agent_2",
+      "agent_3"
+    ],
+    "rubric_scores": {
+      "heuristic_alignment": {
+        "score": 5,
+        "confidence": "high",
+        "justification": "All applicable heuristics and additional considerations from Agent 1 are addressed in Agent 3's plan, with well-justified modifications to prioritize the persona's specific goals (e.g., modified 50/30/20 rule, temporary deferral of full 15% retirement savings, and incorporation of debt avalanche).",
+        "flags": []
+      },
+      "persona_fit": {
+        "score": 4,
+        "confidence": "high",
+        "justification": "The plan is highly tailored to the persona's specific constraints (HCOL, significant debt) and primary goal. The modified budget is very aggressive, which might be challenging for a recent grad, but it is explicitly justified by the persona's stated priority to manage debt.",
+        "flags": [
+          "The 10% 'wants' allocation in an HCOL area, while justified by the debt goal, represents a very strict behavioral ask that may be difficult to sustain for a recent college graduate."
+        ]
+      },
+      "goal_specificity": {
+        "score": 5,
+        "confidence": "high",
+        "justification": "The plan provides highly specific recommendations with concrete dollar amounts, monthly impacts, and clear timelines directly tied to each component of the persona's stated goal, including a detailed projected timeline for debt payoff and emergency fund completion.",
+        "flags": []
+      },
+      "bias_avoidance": {
+        "score": 5,
+        "confidence": "high",
+        "justification": "Agent 3 provides specific, actionable, and well-reasoned mitigations for each cognitive bias identified by Agent 1, directly linking them to the plan's recommendations and the persona's goals.",
+        "flags": []
+      },
+      "feasibility": {
+        "verdict": "feasible",
+        "confidence": "high",
+        "justification": "The financial calculations for the budget, allocations, and debt repayment timeline are internally consistent and appear accurate based on the stated assumptions. The plan is aggressive but mathematically sound. However, the strict 10% allocation for 'wants' in an HCOL area presents a significant behavioral challenge, making it demanding though not impossible.",
+        "flags": [
+          "The assumption that the persona can consistently adhere to a 10% 'wants' budget in a high-cost-of-living area, while mathematically sound for debt acceleration, is a very demanding behavioral expectation."
+        ]
+      }
+    },
+    "pipeline_integrity": {
+      "agent_1_assessment": {
+        "performed_correctly": true,
+        "issues": [
+          "Agent 1 accurately identified the persona's financial situation, extracted the core goal, and correctly classified applicable and inapplicable heuristics, providing sound rationales for each. The identified cognitive risks were also highly relevant to the persona's context."
+        ]
+      },
+      "agent_2_assessment": {
+        "stayed_in_lane": true,
+        "issues": [
+          "Agent 2 successfully generated a mechanical baseline plan by applying all applicable heuristics identified by Agent 1 without introducing any goal-specific optimizations or additional heuristics, accurately reflecting its role as a non-optimized starting point."
+        ]
+      },
+      "agent_3_assessment": {
+        "meaningfully_deviated": true,
+        "deviation_quality": "justified",
+        "issues": [
+          "Agent 3 made substantial and well-justified deviations from the baseline plan, particularly in reallocating the budget and prioritizing aggressive student debt repayment, directly aligning the plan with the persona's primary financial goal. The detailed rationales for each modification demonstrate a strong understanding of the persona's needs."
+        ]
+      }
+    },
+    "overall_recommendation": "approve",
+    "revision_suggestions": [
+      "Consider adding a summary table of the persona's estimated monthly income and total allocated expenses to provide a quick overview of the budget.",
+      "Suggest a specific timeframe or trigger for re-evaluating the strict 'wants' budget (e.g., after debt payoff or a salary increase) to ensure long-term sustainability.",
+      "Clarify that the 'N/A' for monthly impact on 'Age-Based Asset Allocation' means it's a strategy for existing investments rather than a new monthly contribution."
+    ],
+    "user_facing_summary": "This financial plan is designed to help you aggressively pay down your student debt, build a safety net, and take advantage of your employer's 401(k) match. It proposes a very focused budget that prioritizes debt repayment, which means you'll need to be disciplined with your spending on non-essentials. While challenging, this approach aims to get you debt-free much faster. Your next concrete step should be to set up the automatic transfers for your emergency fund and 401(k) contributions as soon as possible."
+  }
+}
