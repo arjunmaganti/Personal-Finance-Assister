@@ -62,15 +62,15 @@ if __name__ == "__main__":
     ]
 
 
-for persona in personas:
-    print(f"\n{'='*60}")
-    print(f"Processing: {persona[:60]}...")
-    print('='*60)
+    for persona in personas:
+        print(f"\n{'='*60}")
+        print(f"Processing: {persona[:60]}...")
+        print('='*60)
 
-    try:
-        result = run_pipeline(persona)
-        print("\nAgent 4 Summary:")
-        print(result["agent_4"]["user_facing_summary"])
-    except Exception as e:
-        print(f"Pipeline failed for persona: {e}")
+        try:
+            result = run_pipeline(persona)
+            print("\nAgent 4 Summary:")
+            print(result["agent_4"]["user_facing_summary"])
+        except Exception as e:
+            print(f"Pipeline failed for persona: {e}")
     

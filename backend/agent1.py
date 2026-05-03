@@ -141,7 +141,7 @@ GROUNDING DOCUMENT 2: COGNITIVE BIASES
 
 def run_agent_1(client, persona_input: str) -> dict:
     response = client.models.generate_content(
-        model="gemini-2.0-flash",
+        model="gemini-2.5-flash",
         contents=persona_input,
         config=types.GenerateContentConfig(
             system_instruction=system_prompt,

@@ -5,6 +5,7 @@ import json
 
 with open("heuristics.md", "r") as f:
     heuristics = f.read()
+
 with open("biases.md", "r") as f:
     biases = f.read()
 
@@ -111,7 +112,7 @@ AGENT 1 PROFILE:
 {json.dumps(agent_1_output, indent=2)}
 """
     response = client.models.generate_content(
-        model="gemini-2.0-flash",
+        model="gemini-2.5-flash",
         contents=combined_input,
         config=types.GenerateContentConfig(
             system_instruction=system_prompt,

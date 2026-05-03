@@ -1,0 +1,284 @@
+{
+  "persona": "28-year-old, entry-level salary, renting in San Francisco, $25k in student loans",
+  "pipeline_variant": "sequential",
+  "agent_1": {
+    "income_tier": "mid",
+    "debt_load": "manageable",
+    "housing_situation": "high-cost-market",
+    "employment_stability": "stable",
+    "goal": "Manage $25k in student loan debt while building an emergency fund and starting retirement savings.",
+    "applicable_heuristics": [
+      "50/30/20 Rule",
+      "Pay Yourself First",
+      "Emergency Fund",
+      "15% Retirement Savings",
+      "Rule of 72",
+      "401(k) Employer Match",
+      "Age-Based Asset Allocation"
+    ],
+    "additional_considerations": [],
+    "inapplicable_heuristics": [
+      {
+        "rule": "Housing Costs Under 30%",
+        "reason": "Renting in San Francisco, a high-cost-market, makes it extremely challenging to keep housing costs under 30% of an entry-level salary."
+      },
+      {
+        "rule": "Avoid High-Interest Debt",
+        "reason": "The persona has student loans, which are typically not classified as 'high-interest debt' in the same category as credit card debt or payday loans, though managing them is crucial."
+      }
+    ],
+    "cognitive_risks": [
+      {
+        "bias": "Status Quo Bias",
+        "reason": "Given the high cost of living and student debt, the individual might be resistant to making significant changes to their spending or saving habits, preferring to maintain their current financial routine even if it's not optimal."
+      }
+    ],
+    "additional_biases": []
+  },
+  "agent_2": {
+    "baseline_plan": [
+      {
+        "heuristic": "50/30/20 Rule",
+        "recommendation": "Allocate $2,056.25/month to needs, $1,233.75/month to wants, and $822.50/month to savings and debt repayment based on your estimated after-tax income.",
+        "monthly_impact": "$822.50",
+        "priority": "N/A"
+      },
+      {
+        "heuristic": "Emergency Fund",
+        "recommendation": "Direct the $822.50/month allocated to savings and debt repayment (from the 50/30/20 rule) towards building a liquid emergency fund of at least $6,168.75 (3 months of essential expenses) in a high-yield savings account.",
+        "monthly_impact": "$822.50",
+        "priority": 1
+      },
+      {
+        "heuristic": "Pay Yourself First",
+        "recommendation": "Set up an automatic transfer of $822.50 (your 20% savings and debt allocation from the 50/30/20 rule) to a dedicated high-yield savings account immediately after each paycheck.",
+        "monthly_impact": "$822.50",
+        "priority": 2
+      },
+      {
+        "heuristic": "401(k) Employer Match",
+        "recommendation": "Contribute at least 6% of your gross salary ($375/month) to your employer-sponsored 401(k) to capture the full employer match of $187.50/month.",
+        "monthly_impact": "$375.00",
+        "priority": 3
+      },
+      {
+        "heuristic": "15% Retirement Savings",
+        "recommendation": "Target saving $937.50/month (15% of your gross income) towards retirement, including any employer match.",
+        "monthly_impact": "$937.50",
+        "priority": 4
+      },
+      {
+        "heuristic": "Age-Based Asset Allocation",
+        "recommendation": "Aim for an asset allocation of approximately 82% equities (stocks) and 18% fixed income (bonds) within your retirement accounts, adjusting gradually as you age.",
+        "monthly_impact": "Indeterminate",
+        "priority": "N/A"
+      },
+      {
+        "heuristic": "Rule of 72",
+        "recommendation": "Understand that at an assumed 7% average annual return, your investments would approximately double every 10 years (72 / 7 \u2248 10.3), highlighting the benefit of starting retirement savings early.",
+        "monthly_impact": "Indeterminate",
+        "priority": "N/A"
+      }
+    ],
+    "inapplicable_notes": [
+      {
+        "rule": "Housing Costs Under 30%",
+        "reason": "Renting in San Francisco, a high-cost-market, makes it extremely challenging to keep housing costs under 30% of an entry-level salary."
+      },
+      {
+        "rule": "Avoid High-Interest Debt",
+        "reason": "The persona has student loans, which are typically not classified as 'high-interest debt' in the same category as credit card debt or payday loans, though managing them is crucial."
+      }
+    ],
+    "assumptions": [
+      "Assumed a gross annual income of $75,000 ($6,250/month).",
+      "Assumed an employer 401(k) match structure of 50% of contributions up to 6% of salary.",
+      "Assumed an employee 401(k) contribution of $375/month (6% of gross) to capture the full employer match.",
+      "Assumed an adjusted gross income for tax calculation of $5,875/month ($6,250 gross - $375 401k contribution).",
+      "Assumed an after-tax monthly income of $4,112.50 (approximately 30% combined tax rate on adjusted gross for federal, state, and FICA).",
+      "Assumed a student loan interest rate of 6.5% APR.",
+      "Used the Rule of 110 for Age-Based Asset Allocation, assuming a moderate risk tolerance."
+    ],
+    "baseline_summary": "This baseline plan provides a structured approach to managing income using the 50/30/20 rule, prioritizing the establishment of an emergency fund, and initiating retirement savings by capturing the employer 401(k) match and targeting a 15% savings rate. It does not provide specific strategies for optimizing the $25,000 student loan debt beyond allocating a portion of income to savings and debt, nor does it account for the specific challenges of living in a high-cost-of-living area like San Francisco beyond acknowledging the housing cost rule is inapplicable."
+  },
+  "agent_3": {
+    "optimized_plan": [
+      {
+        "heuristic": "50/30/20 Rule",
+        "source": "modified",
+        "recommendation": "Reallocate your after-tax income to 50% for needs ($2,056.25/month), 20% for wants ($822.50/month), and 30% for savings and debt repayment ($1,233.75/month).",
+        "deviation_from_baseline": "Modified the allocation from 50/30/20 to 50/20/30. This reduces the 'wants' category from $1,233.75 to $822.50 and increases the 'savings and debt repayment' category from $822.50 to $1,233.75.",
+        "rationale": "To aggressively address the persona's primary goal of managing student loan debt and building an emergency fund, a higher allocation to savings and debt repayment is necessary. Reducing discretionary 'wants' frees up an additional $411.25/month for these critical goals.",
+        "monthly_impact": "$1,233.75",
+        "priority": "N/A"
+      },
+      {
+        "heuristic": "Emergency Fund",
+        "source": "modified",
+        "recommendation": "Direct $858.75/month towards building a liquid emergency fund of at least $6,168.75 (3 months of essential expenses) in a high-yield savings account. This is the first priority for your non-retirement savings.",
+        "deviation_from_baseline": "Increased the monthly allocation to the emergency fund from $822.50 to $858.75 by reallocating funds from the 'wants' category and specifying its priority within the overall savings and debt bucket (after the 401k contribution).",
+        "rationale": "Accelerating the completion of the emergency fund is a critical prerequisite for financial stability and a stated goal. A larger monthly contribution allows for quicker funding, enabling a faster transition to aggressive student loan repayment.",
+        "monthly_impact": "$858.75",
+        "priority": 1
+      },
+      {
+        "heuristic": "Pay Yourself First",
+        "source": "modified",
+        "recommendation": "Set up an automatic transfer of $1,233.75 (your 30% savings and debt allocation) immediately after each paycheck. First, ensure your $375/month 401(k) contribution is made. Then, direct the remaining $858.75/month to your high-yield emergency fund until it is fully funded.",
+        "deviation_from_baseline": "Increased the automatic transfer amount from $822.50 to $1,233.75 and explicitly specified the order of allocation: 401(k) contribution first, then the remainder to the emergency fund.",
+        "rationale": "Ensures consistent and prioritized funding for both retirement (to capture the match) and the emergency fund, directly supporting the persona's goal of building an emergency fund and starting retirement savings by making these allocations non-negotiable.",
+        "monthly_impact": "$1,233.75",
+        "priority": 2
+      },
+      {
+        "heuristic": "401(k) Employer Match",
+        "source": "baseline",
+        "recommendation": "Contribute at least 6% of your gross salary ($375/month) to your employer-sponsored 401(k) to capture the full employer match of $187.50/month.",
+        "deviation_from_baseline": null,
+        "rationale": "Capturing the full employer match is an immediate, guaranteed return on investment, making it the most efficient way to *start* retirement savings, which is a key part of the persona's goal.",
+        "monthly_impact": "$375.00",
+        "priority": 3
+      },
+      {
+        "heuristic": "Student Loan Debt Management",
+        "source": "new",
+        "recommendation": "Once your emergency fund of $6,168.75 is fully established (estimated ~7 months), redirect the full $858.75/month (previously allocated to the emergency fund) towards aggressively paying down your $25,000 student loan debt at 6.5% APR.",
+        "deviation_from_baseline": "This is a new, explicit recommendation for student loan management, which was not detailed in the baseline plan beyond a general 'savings and debt repayment' bucket. It specifies the amount and timing of aggressive debt repayment.",
+        "rationale": "Directly addresses the persona's primary goal of managing student loan debt by providing a concrete, aggressive repayment strategy. This minimizes total interest paid and provides a clear path to debt freedom after the emergency fund is secured, aligning with the persona's stated goal.",
+        "monthly_impact": "$858.75",
+        "priority": 4
+      },
+      {
+        "heuristic": "15% Retirement Savings",
+        "source": "modified",
+        "recommendation": "After your emergency fund is built and your student loan debt is paid off, gradually increase your retirement contributions beyond the employer match, aiming to reach the 15% of gross income target ($937.50/month) by contributing to a Roth IRA or increasing your 401(k) contributions.",
+        "deviation_from_baseline": "Modified the timing and prioritization of reaching the 15% retirement savings target, placing it after the emergency fund and student loan debt are addressed, rather than concurrently.",
+        "rationale": "While 15% retirement savings is a good long-term goal, prioritizing the emergency fund and aggressively paying down 6.5% student loan debt first provides greater immediate financial security and a guaranteed return (by avoiding interest), which is more aligned with the persona's stated goal of *managing* debt and *starting* retirement savings, rather than maximizing it immediately.",
+        "monthly_impact": "$0 (additional beyond 401k match contribution) initially, then increasing",
+        "priority": 5
+      },
+      {
+        "heuristic": "Age-Based Asset Allocation",
+        "source": "baseline",
+        "recommendation": "Aim for an asset allocation of approximately 82% equities (stocks) and 18% fixed income (bonds) within your retirement accounts, adjusting gradually as you age.",
+        "deviation_from_baseline": null,
+        "rationale": "Provides a suitable long-term investment strategy for the retirement savings component of the persona's goal, balancing growth potential with age-appropriate risk management.",
+        "monthly_impact": "Indeterminate",
+        "priority": "N/A"
+      },
+      {
+        "heuristic": "Rule of 72",
+        "source": "baseline",
+        "recommendation": "Understand that at an assumed 7% average annual return, your investments would approximately double every 10 years (72 / 7 \u2248 10.3), highlighting the benefit of starting retirement savings early.",
+        "deviation_from_baseline": null,
+        "rationale": "Helps the persona understand the long-term benefits of consistent retirement savings, reinforcing the importance of the 'starting retirement savings' aspect of their goal.",
+        "monthly_impact": "Indeterminate",
+        "priority": "N/A"
+      }
+    ],
+    "goal_alignment": {
+      "goal": "Manage $25k in student loan debt while building an emergency fund and starting retirement savings.",
+      "addressed_by": [
+        "Emergency Fund",
+        "Pay Yourself First",
+        "401(k) Employer Match",
+        "50/30/20 Rule",
+        "Student Loan Debt Management",
+        "15% Retirement Savings"
+      ],
+      "projected_timeline": "The emergency fund of $6,168.75 is projected to be fully funded in approximately 7.18 months ($6,168.75 / $858.75/month). Following this, the $25,000 student loan debt at 6.5% APR, with payments of $858.75/month, is projected to be paid off in approximately 31.75 months. The total estimated time to achieve the core debt and emergency fund goals is approximately 39 months.",
+      "gap_analysis": "The plan prioritizes immediate financial stability (emergency fund) and high-return opportunities (401k employer match) over immediately reaching the full 15% retirement savings target. This means the persona will be contributing less than the ideal 15% to retirement for the first ~39 months, potentially missing out on some compounding. Additionally, the 50% allocation to 'needs' in San Francisco for an entry-level salary remains a tight constraint, and any unexpected increase in essential expenses could challenge the plan's feasibility without further adjustments to 'wants'."
+    },
+    "additional_considerations_incorporated": [],
+    "cognitive_risk_mitigations": [
+      {
+        "bias": "Status Quo Bias",
+        "mitigation": "The plan requires a significant shift in spending habits (reducing 'wants' from 30% to 20%). To counteract status quo bias, the recommendation for the modified 50/20/30 rule explicitly quantifies the benefit: 'This reallocation frees up an additional $411.25/month, directly accelerating your emergency fund completion by several months and reducing your student loan payoff time by over a year compared to the original allocation.' This makes the cost of inaction (slower progress on goals) explicit and the benefit of action concrete.",
+        "source": "cognitive_risks"
+      }
+    ],
+    "assumptions": [
+      "Assumed a gross annual income of $75,000 ($6,250/month).",
+      "Assumed an employer 401(k) match structure of 50% of contributions up to 6% of salary.",
+      "Assumed an employee 401(k) contribution of $375/month (6% of gross) to capture the full employer match.",
+      "Assumed an adjusted gross income for tax calculation of $5,875/month ($6,250 gross - $375 401k contribution).",
+      "Assumed an after-tax monthly income of $4,112.50 (approximately 30% combined tax rate on adjusted gross for federal, state, and FICA).",
+      "Assumed a student loan interest rate of 6.5% APR.",
+      "Used the Rule of 110 for Age-Based Asset Allocation, assuming a moderate risk tolerance.",
+      "Assumed that 50% of after-tax income ($2,056.25/month) is a feasible allocation for essential needs in San Francisco, despite the high cost of living."
+    ]
+  },
+  "agent_4": {
+    "pipeline_variant": "sequential",
+    "pipeline_stages_evaluated": [
+      "agent_1",
+      "agent_2",
+      "agent_3"
+    ],
+    "rubric_scores": {
+      "heuristic_alignment": {
+        "score": 5,
+        "confidence": "high",
+        "justification": "Agent 3's optimized plan successfully incorporated all applicable heuristics identified by Agent 1. It intelligently modified and prioritized certain heuristics (e.g., 50/30/20 Rule, 15% Retirement Savings) to align more effectively with the persona's specific financial goals, demonstrating a deep understanding of their application.",
+        "flags": []
+      },
+      "persona_fit": {
+        "score": 4,
+        "confidence": "medium",
+        "justification": "The plan is highly tailored to the persona's goals and constraints, particularly the student debt and the need for an emergency fund. However, the aggressive 50/20/30 budget split, especially the 50% allocation for 'needs' in a high-cost market like San Francisco, is a significant stretch for an entry-level salary, even if acknowledged as an assumption.",
+        "flags": [
+          "The 50% allocation for 'needs' in San Francisco for an entry-level salary is very tight and might be difficult to maintain without further detailed budgeting."
+        ]
+      },
+      "goal_specificity": {
+        "score": 5,
+        "confidence": "high",
+        "justification": "Agent 3's plan is exceptionally specific, providing concrete dollar amounts, monthly allocations, and clear timelines for achieving the emergency fund and student loan debt goals. It also clearly outlines the strategy for starting and eventually increasing retirement savings, directly addressing all aspects of the persona's stated goal.",
+        "flags": []
+      },
+      "bias_avoidance": {
+        "score": 5,
+        "confidence": "high",
+        "justification": "Agent 3 successfully identified and provided a concrete, specific mitigation strategy for the 'Status Quo Bias' identified by Agent 1. The mitigation directly links the proposed change (modified 50/30/20 rule) to quantifiable benefits, making the cost of inaction explicit.",
+        "flags": []
+      },
+      "feasibility": {
+        "verdict": "feasible",
+        "confidence": "medium",
+        "justification": "The plan's numerical allocations are internally consistent and sum correctly. The prioritization of goals is logical. However, the aggressive 50/20/30 budget split, particularly the 50% for 'needs' and 20% for 'wants' in a high-cost-of-living city like San Francisco, presents a significant behavioral and practical challenge for an entry-level salary. While technically achievable, it requires extreme discipline and careful expense management.",
+        "flags": [
+          "The 50% allocation for 'needs' in San Francisco for an entry-level salary is very tight and might be difficult to maintain without further detailed budgeting.",
+          "The 20% allocation for 'wants' is very restrictive and may require significant lifestyle adjustments, increasing the risk of non-adherence."
+        ]
+      }
+    },
+    "pipeline_integrity": {
+      "agent_1_assessment": {
+        "performed_correctly": true,
+        "issues": [
+          "Agent 1 accurately identified the persona's financial situation, primary goal, and relevant heuristics, providing a solid foundation for subsequent planning stages."
+        ]
+      },
+      "agent_2_assessment": {
+        "stayed_in_lane": true,
+        "issues": [
+          "Agent 2 successfully generated a mechanical baseline plan by applying all applicable heuristics identified by Agent 1 without introducing any goal-specific optimizations or deviations."
+        ]
+      },
+      "agent_3_assessment": {
+        "meaningfully_deviated": true,
+        "deviation_quality": "justified",
+        "issues": [
+          "Agent 3 made significant and well-justified deviations from the baseline, particularly by reallocating the 50/30/20 rule and introducing a specific student loan repayment strategy, all directly aligned with the persona's stated goals."
+        ]
+      }
+    },
+    "overall_recommendation": "revise",
+    "revision_suggestions": [
+      "Provide more detailed guidance on how to manage the tight 'needs' and 'wants' budget in San Francisco, perhaps with examples of common expenses.",
+      "Suggest practical strategies for tracking expenses and identifying areas for potential savings to ensure adherence to the aggressive budget.",
+      "Include contingency planning advice for unexpected expenses or income fluctuations, given the tight budget constraints."
+    ],
+    "user_facing_summary": "This plan offers a clear and focused strategy to tackle your student loans and build an emergency fund, while also getting your retirement savings started. It prioritizes getting your financial safety net in place and then aggressively paying down debt, which is a smart approach. However, the budget is very tight for living in San Francisco, especially for your everyday needs and wants. Your next step should be to carefully track your spending for a month or two to see if this budget is truly realistic for your lifestyle."
+  }
+}
