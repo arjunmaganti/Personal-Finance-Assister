@@ -1,17 +1,25 @@
-const API_BASE_URL = "http://localhost:8000";
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
-/**
- * Sends a persona to a specific backend variant endpoint.
- * @param {string} variant - 'A', 'B', 'C', or 'D'
- * @param {string} persona - The financial scenario text
- */
 export const runAgentPipeline = async (variant, persona) => {
-  const endpointMap = {
-    'A': '/run/variant-a',
-    'B': '/run/variant-b',
+  // Construct the endpoint mapping
+  const endpoints = {
+    'A': '/run/variant_a',
+    'B': '/run/variant_b',
     'C': '/run/sequential',
-    'D': '/run/hierarchical',
+    'D': '/run/hierarchical'
   };
+
+  const response = await fetch(`${API_BASE_URL}${endpoints[variant]}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ persona })
+  });
+
+  if (!response.ok) {
+    throw new Error(`Server error: ${response.statusText}`);
+  }
+  return response.json();
+};
 
   try {
     const response = await fetch(`${API_BASE_URL}${endpointMap[variant]}`, {
