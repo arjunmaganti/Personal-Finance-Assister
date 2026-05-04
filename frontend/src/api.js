@@ -4,8 +4,8 @@ const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 export const runAgentPipeline = async (variant, persona) => {
   const endpoints = {
-    'A': '/run/variant_a',
-    'B': '/run/variant_b',
+    'A': '/run/variant-a',
+    'B': '/run/variant-b',
     'C': '/run/sequential',
     'D': '/run/hierarchical'
   };
