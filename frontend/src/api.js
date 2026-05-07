@@ -35,3 +35,13 @@ export const runAgentPipeline = async (variant, persona) => {
     throw error;
   }
 };
+
+export const runAllVariants = async (persona) => {
+  const variants = ['A', 'B', 'C', 'D'];
+  
+  // Maps each variant to a promise
+  const promises = variants.map(v => runAgentPipeline(v, persona));
+  
+  // Executes all in parallel
+  return await Promise.allSettled(promises);
+};
