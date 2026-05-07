@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { runAgentPipeline } from './api'
+import ReactMarkdown from 'react-markdown';
 
 function App() {
   const [persona, setPersona] = useState('');
@@ -71,25 +72,25 @@ const renderCard = (v) => {
         )}
 
         {data && (
-          <div style={{ fontSize: '0.95rem', lineHeight: '1.6', color: '#333' }}>
-            {/* Logic to handle Variant A/B (string) vs C/D (JSON Object) */}
+        <div style={{ fontSize: '0.95rem', lineHeight: '1.6', color: '#333' }}>
+          {/* Logic to handle Variant A/B (Markdown) vs C/D (JSON Object) */}
             {(v === 'A' || v === 'B') ? (
-              <div style={{ whiteSpace: 'pre-wrap' }}>
-                {/* Check if data.result exists, otherwise fallback to a string check */}
-                {typeof data.result === 'string' ? data.result : JSON.stringify(data.result)}
+              <div className="markdown-container" style={{ textAlign: 'left' }}>
+              <ReactMarkdown>{typeof data.result === 'string' ? data.result : JSON.stringify(data.result)}</ReactMarkdown>
               </div>
             ) : (
-              <div>
-                <p style={{ fontWeight: 'bold', color: '#2c3e50', marginBottom: '5px' }}>Final Strategy Summary:</p>
+            <div>
+              <p style={{ fontWeight: 'bold', color: '#2c3e50', marginBottom: '5px' }}>Final Strategy Summary:</p>
                 <div style={{ background: '#f9f9f9', padding: '10px', borderRadius: '6px', borderLeft: '4px solid #27ae60' }}>
-                  {data.result?.agent_4?.user_facing_summary || "Processing complex plan..."}
-                </div>
-                <p style={{ fontSize: '0.8rem', color: '#7f8c8d', marginTop: '15px' }}>
-                  Click to expand for full JSON and QC report.
-                </p>
-              </div>
-            )}
-          </div>
+                    {/* If Agent 4 also uses markdown in its summary, we can wrap it here too */}
+                  <ReactMarkdown>{data.result?.agent_4?.user_facing_summary || "Processing complex plan..."}</ReactMarkdown>
+            </div>
+              <p style={{ fontSize: '0.8rem', color: '#7f8c8d', marginTop: '15px' }}>
+              Click to expand for full JSON and QC report.
+          </p>
+            </div>
+              )}
+        </div>
         )}
       </div>
     );
