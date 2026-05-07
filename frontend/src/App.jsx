@@ -90,9 +90,21 @@ const renderCard = (v) => {
           </h4>
           <div style={{ maxHeight: '300px', overflowY: 'auto', background: '#f8f9fa', padding: '15px', borderRadius: '8px', border: '1px solid #eaedf0' }}>
             <ReactMarkdown>
-              {/* This assumes your Agent 3 output is in result.agent_3.response or similar */}
-              {data.result?.agent_3?.optimized_plan || data.result?.agent_3?.response || "Plan data missing..."}
+              {/* 1. Try the direct path first */}
+                {data.result?.agent_3?.optimized_plan || 
+              /* 2. Fallback to 'response' if it exists */
+                data.result?.agent_3?.response || 
+              /* 3. If agent_3 is just a string, show it */
+                (typeof data.result?.agent_3 === 'string' ? data.result.agent_3 : "") ||
+              /* 4. Final fallback error message */
+                "Plan data not found in response."}
             </ReactMarkdown>
+            {/* DEBUG: Remove this once fixed, but it will tell us why it's blank */}
+              {!data.result?.agent_3?.optimized_plan && (
+              <div style={{fontSize: '10px', color: 'red'}}>
+                Available keys: {Object.keys(data.result?.agent_3 || {}).join(', ')}
+              </div>
+              )}
           </div>
         </div>
 
