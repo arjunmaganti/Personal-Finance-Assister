@@ -16,21 +16,29 @@ function App() {
 
     const variants = ['A', 'B', 'C', 'D'];
 
-    // Launch all 4 requests simultaneously
+    // We create an array of promises
     const requests = variants.map(async (v) => {
       try {
         const data = await runAgentPipeline(v, persona);
-        setResults(prev => ({ ...prev, [v]: data }));
+        // Use functional update to ensure we don't lose other variants' data
+        setResults(prev => ({ 
+          ...prev, 
+          [v]: data 
+        }));
       } catch (err) {
-        setErrors(prev => ({ ...prev, [v]: err.message }));
+        setErrors(prev => ({ 
+          ...prev, 
+          [v]: err.message 
+        }));
       }
     });
 
+    // Wait for all to settle
     await Promise.allSettled(requests);
     setLoading(false);
   };
 
-  const renderCard = (v) => {
+const renderCard = (v) => {
     const data = results[v];
     const error = errors[v];
 
@@ -40,29 +48,45 @@ function App() {
         padding: '20px', 
         borderRadius: '12px', 
         border: '1px solid #e0e0e0',
+        minHeight: '400px', // Ensures cards have consistent height
         display: 'flex',
-        flexDirection: 'column',
-        gap: '15px'
+        flexDirection: 'column'
       }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '20px', fontWeight: 'bold', borderBottom: '1px solid #eee', paddingBottom: '10px' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: 'bold', borderBottom: '1px solid #eee', paddingBottom: '10px', marginBottom: '15px' }}>
           <span>VARIANT {v}</span>
           {data && <span style={{ fontSize: '0.8rem', color: '#95a5a6' }}>{data.duration_seconds}s</span>}
         </div>
 
-        {loading && !data && !error && <div style={{ color: '#3498db', fontStyle: 'italic' }}>Processing...</div>}
+        {/* Loading State for individual card */}
+        {loading && !data && !error && (
+          <div style={{ color: '#3498db', fontStyle: 'italic', textAlign: 'center', marginTop: '20px' }}>
+            AI is thinking...
+          </div>
+        )}
         
-        {error && <div style={{ color: '#c0392b', fontSize: '0.9rem' }}>Error: {error}</div>}
+        {error && (
+          <div style={{ color: '#c0392b', fontSize: '0.9rem', background: '#fdf2f2', padding: '10px', borderRadius: '4px' }}>
+            {error}
+          </div>
+        )}
 
         {data && (
-          <div style={{ fontSize: '0.95rem', lineHeight: '1.5' }}>
-            {/* Logic to handle Variant A/B (string) vs C/D (JSON) */}
+          <div style={{ fontSize: '0.95rem', lineHeight: '1.6', color: '#333' }}>
+            {/* Logic to handle Variant A/B (string) vs C/D (JSON Object) */}
             {(v === 'A' || v === 'B') ? (
-              <div style={{ whiteSpace: 'pre-wrap' }}>{data.result}</div>
+              <div style={{ whiteSpace: 'pre-wrap' }}>
+                {/* Check if data.result exists, otherwise fallback to a string check */}
+                {typeof data.result === 'string' ? data.result : JSON.stringify(data.result)}
+              </div>
             ) : (
               <div>
-                <p><strong>Agent 4 Strategy:</strong></p>
-                <p>{data.result?.agent_4?.user_facing_summary?.substring(0, 200)}...</p>
-                <em style={{fontSize: '0.8rem', color: '#7f8c8d'}}>Full plan viewable in expanded mode (Coming next)</em>
+                <p style={{ fontWeight: 'bold', color: '#2c3e50', marginBottom: '5px' }}>Final Strategy Summary:</p>
+                <div style={{ background: '#f9f9f9', padding: '10px', borderRadius: '6px', borderLeft: '4px solid #27ae60' }}>
+                  {data.result?.agent_4?.user_facing_summary || "Processing complex plan..."}
+                </div>
+                <p style={{ fontSize: '0.8rem', color: '#7f8c8d', marginTop: '15px' }}>
+                  Click to expand for full JSON and QC report.
+                </p>
               </div>
             )}
           </div>
