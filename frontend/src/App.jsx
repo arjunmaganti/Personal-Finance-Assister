@@ -144,16 +144,16 @@ function App() {
   };
 
   return (
-    <div style={{ padding: '40px 20px', maxWidth: '1500px', margin: '0 auto', fontFamily: 'sans-serif', backgroundColor: '#f9f9f9', minHeight: '100vh' }}>
+    <div style={{ padding: '40px 20px', maxWidth: '1500px', margin: '0 auto', fontFamily: 'sans-serif', backgroundColor: '#787777', minHeight: '100vh' }}>
       <header style={{ textAlign: 'center', marginBottom: '40px' }}>
-        <h1>Financial Advisory AI: Side-by-Side Comparison</h1>
-        <p>Input a persona to see how different context engineering strategies perform.</p>
+        <h1>Side-by-Side Comparison Demo: Variants A-D</h1>
+        <p>Input a persona to compare the differences between each variant's response.</p>
       </header>
 
       <section style={{ marginBottom: '40px', background: 'white', padding: '25px', borderRadius: '12px', boxShadow: '0 2px 10px rgba(0,0,0,0.05)', maxWidth: '800px', margin: '0 auto 40px auto' }}>
         <form onSubmit={handleSubmit}>
           <textarea
-            placeholder="Describe the financial situation..."
+            placeholder="Input a persona/financial situation"
             value={persona}
             onChange={(e) => setPersona(e.target.value)}
             required
