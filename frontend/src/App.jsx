@@ -72,26 +72,63 @@ const renderCard = (v) => {
         )}
 
         {data && (
-        <div style={{ fontSize: '0.95rem', lineHeight: '1.6', color: '#333' }}>
-          {/* Logic to handle Variant A/B (Markdown) vs C/D (JSON Object) */}
-            {(v === 'A' || v === 'B') ? (
-              <div className="markdown-container" style={{ textAlign: 'left' }}>
-              <ReactMarkdown>{typeof data.result === 'string' ? data.result : JSON.stringify(data.result)}</ReactMarkdown>
-              </div>
-            ) : (
-            <div>
-              <p style={{ fontWeight: 'bold', color: '#2c3e50', marginBottom: '5px' }}>Final Strategy Summary:</p>
-                <div style={{ background: '#f9f9f9', padding: '10px', borderRadius: '6px', borderLeft: '4px solid #27ae60' }}>
-                    {/* If Agent 4 also uses markdown in its summary, we can wrap it here too */}
-                  <ReactMarkdown>{data.result?.agent_4?.user_facing_summary || "Processing complex plan..."}</ReactMarkdown>
-            </div>
-              <p style={{ fontSize: '0.8rem', color: '#7f8c8d', marginTop: '15px' }}>
-              Click to expand for full JSON and QC report.
-          </p>
-            </div>
-              )}
+  <div style={{ fontSize: '0.95rem', lineHeight: '1.6', color: '#333', flex: 1, display: 'flex', flexDirection: 'column' }}>
+    
+    {/* Variants A & B: Direct Markdown */}
+    {(v === 'A' || v === 'B') ? (
+      <div className="markdown-container">
+        <ReactMarkdown>{typeof data.result === 'string' ? data.result : "No data available"}</ReactMarkdown>
+      </div>
+    ) : (
+      /* Variants C & D: Multi-Agent Deep Dive */
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        
+        {/* Agent 3: The Optimized Plan */}
+        <div style={{ borderBottom: '1px solid #eee', paddingBottom: '15px' }}>
+          <h4 style={{ color: '#2980b9', marginBottom: '8px', fontSize: '0.9rem', textTransform: 'uppercase' }}>
+            📍 Agent 3: Optimized Strategy
+          </h4>
+          <div style={{ maxHeight: '300px', overflowY: 'auto', background: '#f8f9fa', padding: '15px', borderRadius: '8px', border: '1px solid #eaedf0' }}>
+            <ReactMarkdown>
+              {/* This assumes your Agent 3 output is in result.agent_3.response or similar */}
+              {data.result?.agent_3?.optimized_plan || data.result?.agent_3?.response || "Plan data missing..."}
+            </ReactMarkdown>
+          </div>
         </div>
-        )}
+
+        {/* Agent 4: The Summary */}
+        <div>
+          <h4 style={{ color: '#27ae60', marginBottom: '8px', fontSize: '0.9rem', textTransform: 'uppercase' }}>
+            ✅ Agent 4: Final Summary
+          </h4>
+          <div style={{ padding: '0 5px' }}>
+            <ReactMarkdown>
+              {data.result?.agent_4?.user_facing_summary || "Summary data missing..."}
+            </ReactMarkdown>
+          </div>
+        </div>
+
+        {/* Expandable Debug Section */}
+        <details style={{ marginTop: 'auto', background: '#f1f1f1', borderRadius: '6px', overflow: 'hidden' }}>
+          <summary style={{ padding: '10px', cursor: 'pointer', fontSize: '0.8rem', color: '#7f8c8d', fontWeight: 'bold' }}>
+            View Full Pipeline JSON
+          </summary>
+          <pre style={{ 
+            fontSize: '0.75rem', 
+            padding: '10px', 
+            maxHeight: '200px', 
+            overflowY: 'auto', 
+            margin: 0,
+            background: '#2c3e50',
+            color: '#ecf0f1'
+          }}>
+            {JSON.stringify(data.result, null, 2)}
+          </pre>
+        </details>
+      </div>
+    )}
+  </div>
+)}
       </div>
     );
   };
