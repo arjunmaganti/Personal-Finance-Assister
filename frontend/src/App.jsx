@@ -85,28 +85,44 @@ const renderCard = (v) => {
         
         {/* Agent 3: The Optimized Plan */}
         <div style={{ borderBottom: '1px solid #eee', paddingBottom: '15px' }}>
-          <h4 style={{ color: '#2980b9', marginBottom: '8px', fontSize: '0.9rem', textTransform: 'uppercase' }}>
-            📍 Agent 3: Optimized Strategy
-          </h4>
-          <div style={{ maxHeight: '300px', overflowY: 'auto', background: '#f8f9fa', padding: '15px', borderRadius: '8px', border: '1px solid #eaedf0' }}>
-            <ReactMarkdown>
-              {/* 1. Try the direct path first */}
-                {data.result?.agent_3?.optimized_plan || 
-              /* 2. Fallback to 'response' if it exists */
-                data.result?.agent_3?.response || 
-              /* 3. If agent_3 is just a string, show it */
-                (typeof data.result?.agent_3 === 'string' ? data.result.agent_3 : "") ||
-              /* 4. Final fallback error message */
-                "Plan data not found in response."}
-            </ReactMarkdown>
-            {/* DEBUG: Remove this once fixed, but it will tell us why it's blank */}
-              {!data.result?.agent_3?.optimized_plan && (
-              <div style={{fontSize: '10px', color: 'red'}}>
-                Available keys: {Object.keys(data.result?.agent_3 || {}).join(', ')}
+        <h4 style={{ color: '#2980b9', marginBottom: '8px', fontSize: '0.9rem', textTransform: 'uppercase' }}>
+          📍 Agent 3: Optimized Strategy
+        </h4>
+        <div style={{ 
+          maxHeight: '300px', 
+          overflowY: 'auto', 
+          background: '#f8f9fa', 
+          padding: '15px', 
+          borderRadius: '8px', 
+          border: '1px solid #eaedf0' 
+        }}>
+        {/* 1. Check if optimized_plan is an array (per your JSON) */}
+          {Array.isArray(data.result?.agent_3?.optimized_plan) ? (
+          data.result.agent_3.optimized_plan.map((item, index) => (
+          <div key={index} style={{ marginBottom: '15px', borderBottom: '1px solid #e0e0e0', paddingBottom: '10px' }}>
+            <div style={{ fontWeight: 'bold', color: '#2c3e50', fontSize: '0.9rem' }}>
+              {item.heuristic}
+            </div>
+            <div style={{ fontSize: '0.9rem', color: '#333', marginTop: '4px' }}>
+              <ReactMarkdown>{item.recommendation}</ReactMarkdown>
+            </div>
+            {item.monthly_impact !== "N/A" && (
+              <div style={{ fontSize: '0.8rem', color: '#7f8c8d', marginTop: '4px' }}>
+                Impact: {item.monthly_impact}
               </div>
-              )}
+            )}
           </div>
-        </div>
+        ))
+      ) : (
+        /* 2. Fallback if it's just a string or missing */
+          <ReactMarkdown>
+            {typeof data.result?.agent_3?.optimized_plan === 'string' 
+              ? data.result.agent_3.optimized_plan 
+              : "Optimized plan data is not in the expected format."}
+          </ReactMarkdown>
+        )}
+      </div>
+    </div>
 
         {/* Agent 4: The Summary */}
         <div>
