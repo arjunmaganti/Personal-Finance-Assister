@@ -9,7 +9,6 @@ function App() {
   const [errors, setErrors] = useState({});
   const [secondsElapsed, setSecondsElapsed] = useState(0);
 
-  // Tuscan-Modern Color Palette
   const colors = {
     espresso: '#3d2b1f',
     terracotta: '#a0522d',

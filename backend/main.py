@@ -21,16 +21,10 @@ from pipeline_sequential import run_pipeline
 from variants.variant_a import run_variant_a
 from variants.variant_b import run_variant_b
 
-# ── Client ─────────────────────────────────────────────────────────────────
-# Created once at startup and shared across all requests.
-# This avoids creating a new connection for every API call.
+
 client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
 
 
-# ── Lifespan ───────────────────────────────────────────────────────────────
-# Code inside the lifespan runs once when the server starts and once when
-# it shuts down. We use it to confirm the API key is present before
-# accepting any requests.
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     if not os.environ.get("GEMINI_API_KEY"):
@@ -40,7 +34,6 @@ async def lifespan(app: FastAPI):
     print("Server shutting down")
 
 
-# ── App ────────────────────────────────────────────────────────────────────
 app = FastAPI(
     title="Financial Advisory Pipeline API",
     description="Runs financial planning personas through four context engineering variants",
@@ -48,25 +41,15 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-
-# ── CORS ───────────────────────────────────────────────────────────────────
-# CORS (Cross-Origin Resource Sharing) allows the React frontend, which runs
-# on a different port (5173), to make requests to this backend (8000).
-# Without this, the browser would block every request.
-# In production you replace "*" with your actual deployed frontend URL.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["https://personal-finance-assister.vercel.app/"],
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["https://personal-finance-assister.vercel.app/"],
+    allow_headers=["https://personal-finance-assister.vercel.app/"],
 )
 
 
-# ── Request / Response schemas ─────────────────────────────────────────────
-# Pydantic models define exactly what shape of data the API accepts and
-# returns. FastAPI automatically validates incoming requests against these
-# and returns a clear error if something is wrong.
 
 class PersonaRequest(BaseModel):
     persona: str
@@ -93,16 +76,11 @@ class ProseResponse(BaseModel):
     result: str
 
 
-# ── Helper: run blocking code without freezing the server ──────────────────
-# asyncio.to_thread() takes a regular (blocking) function and runs it in a
-# separate thread so the async event loop stays free to handle other
-# requests. This is how we get concurrency without rewriting all agent code.
 
 async def run_in_thread(fn, *args):
     return await asyncio.to_thread(fn, *args)
 
 
-# ── Routes ─────────────────────────────────────────────────────────────────
 
 @app.get("/")
 async def root():
