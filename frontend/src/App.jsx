@@ -9,6 +9,7 @@ function App() {
   const [errors, setErrors] = useState({});
   const [secondsElapsed, setSecondsElapsed] = useState(0);
   
+  // Logic for UI state: expansions and copy confirmation
   const [expandedCards, setExpandedCards] = useState({});
   const [copyStatus, setCopyStatus] = useState({});
 
@@ -52,6 +53,7 @@ function App() {
     }
 
     navigator.clipboard.writeText(textToCopy).then(() => {
+      // Local UI confirmation logic
       setCopyStatus(prev => ({ ...prev, [v]: true }));
       setTimeout(() => {
         setCopyStatus(prev => ({ ...prev, [v]: false }));
@@ -65,7 +67,7 @@ function App() {
     setErrors({});
     setResults({});
     setSecondsElapsed(0);
-    setExpandedCards({});
+    setExpandedCards({}); // Reset state for new run
     const timer = setInterval(() => setSecondsElapsed((prev) => prev + 1), 1000);
 
     const variants = ['A', 'B', 'C', 'D'];
@@ -152,6 +154,7 @@ function App() {
                   maxHeight: isExpanded ? 'none' : '280px', 
                   overflow: 'hidden',
                   position: 'relative',
+                  // Fade effect for the "preview" mode
                   maskImage: isExpanded ? 'none' : 'linear-gradient(to bottom, black 70%, transparent 100%)',
                   WebkitMaskImage: isExpanded ? 'none' : 'linear-gradient(to bottom, black 70%, transparent 100%)'
                 }}>
