@@ -72,7 +72,7 @@ function App() {
 
         {loading && !data && !error && (
           <div style={{ color: '#3498db', fontStyle: 'italic', textAlign: 'center', marginTop: '40px' }}>
-            AI is thinking...
+            Processing...
           </div>
         )}
 
@@ -94,7 +94,7 @@ function App() {
                 {/* Agent 3 section */}
                 <div style={{ borderBottom: '1px solid #eee', paddingBottom: '15px' }}>
                   <h4 style={{ color: '#2980b9', marginBottom: '8px', fontSize: '0.9rem', textTransform: 'uppercase' }}>
-                    📍 Agent 3: Optimized Strategy
+                    Optimized Strategy
                   </h4>
                   <div style={{ maxHeight: '300px', overflowY: 'auto', background: '#f8f9fa', padding: '15px', borderRadius: '8px', border: '1px solid #eaedf0' }}>
                     {Array.isArray(data.result?.agent_3?.optimized_plan) ? (
@@ -120,7 +120,7 @@ function App() {
                 {/* Agent 4 section */}
                 <div>
                   <h4 style={{ color: '#27ae60', marginBottom: '8px', fontSize: '0.9rem', textTransform: 'uppercase' }}>
-                    ✅ Agent 4: Final Summary
+                    Final Summary
                   </h4>
                   <div style={{ padding: '0 5px' }}>
                     <ReactMarkdown>
@@ -144,7 +144,7 @@ function App() {
   };
 
   return (
-    <div style={{ padding: '40px 20px', maxWidth: '1500px', margin: '0 auto', fontFamily: 'sans-serif', backgroundColor: '#787777', minHeight: '100vh' }}>
+    <div style={{ padding: '40px 20px', maxWidth: '1500px', margin: '0 auto', fontFamily: 'system-ui', backgroundColor: '#787777', minHeight: '100vh' }}>
       <header style={{ textAlign: 'center', marginBottom: '40px' }}>
         <h1>Side-by-Side Comparison Demo: Variants A-D</h1>
         <p>Input a persona to compare the differences between each variant's response.</p>
