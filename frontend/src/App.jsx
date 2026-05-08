@@ -98,7 +98,7 @@ function App() {
               color: colors.oak, fontWeight: 'bold', zIndex: 10
             }}
           >
-            COPY ALL
+            COPY
           </button>
         )}
 
@@ -129,58 +129,56 @@ function App() {
         {data && (
           <div style={{ fontSize: '0.95rem', lineHeight: '1.7', color: colors.espresso, flex: 1, display: 'flex', flexDirection: 'column' }}>
             
-            <div style={{ flex: 1 }}>
-                {(v === 'A' || v === 'B') ? (
-                <div className="markdown-container">
-                    <ReactMarkdown>{typeof data.result === 'string' ? data.result : "No data available"}</ReactMarkdown>
-                </div>
-                ) : (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-                    <div>
-                        <h4 style={{ color: '#2980b9', marginBottom: '10px', fontSize: '0.95rem', textTransform: 'uppercase' }}>
-                            Optimized Strategy
-                        </h4>
-                        <div style={{ maxHeight: '300px', overflowY: 'auto', background: '#fff9f0', padding: '15px', borderRadius: '10px', border: `1px solid ${colors.stone}` }}>
-                            {Array.isArray(data.result?.agent_3?.optimized_plan) ? (
-                            data.result.agent_3.optimized_plan.map((item, index) => (
-                                <div key={index} style={{ marginBottom: '15px', borderBottom: `1px solid ${colors.stone}`, paddingBottom: '10px' }}>
-                                    <div style={{ fontWeight: 'bold', color: colors.oak, fontSize: '0.9rem' }}>{item.heuristic}</div>
-                                    <div style={{ fontSize: '0.9rem', color: colors.espresso, marginTop: '5px' }}>
-                                        <ReactMarkdown>{item.recommendation}</ReactMarkdown>
-                                    </div>
-                                    {item.monthly_impact !== "N/A" && (
-                                        <div style={{ fontSize: '0.8rem', color: colors.terracotta, marginTop: '6px', fontWeight: 'bold' }}>Impact: {item.monthly_impact}</div>
-                                    )}
-                                </div>
-                            ))
-                            ) : (
-                            <ReactMarkdown>
-                                {typeof data.result?.agent_3?.optimized_plan === 'string' ? data.result.agent_3.optimized_plan : "Optimized plan not found."}
-                            </ReactMarkdown>
-                            )}
-                        </div>
-                    </div>
+            {(v === 'A' || v === 'B') ? (
+              <div className="markdown-container">
+                  <ReactMarkdown>{typeof data.result === 'string' ? data.result : "No data available"}</ReactMarkdown>
+              </div>
+            ) : (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+                  <div>
+                      <h4 style={{ color: '#2980b9', marginBottom: '10px', fontSize: '0.95rem', textTransform: 'uppercase' }}>
+                          Optimized Strategy
+                      </h4>
+                      <div style={{ maxHeight: '300px', overflowY: 'auto', background: '#fff9f0', padding: '15px', borderRadius: '10px', border: `1px solid ${colors.stone}` }}>
+                          {Array.isArray(data.result?.agent_3?.optimized_plan) ? (
+                          data.result.agent_3.optimized_plan.map((item, index) => (
+                              <div key={index} style={{ marginBottom: '15px', borderBottom: index !== data.result.agent_3.optimized_plan.length - 1 ? `1px solid ${colors.stone}` : 'none', paddingBottom: '10px' }}>
+                                  <div style={{ fontWeight: 'bold', color: colors.oak, fontSize: '0.9rem' }}>{item.heuristic}</div>
+                                  <div style={{ fontSize: '0.9rem', color: colors.espresso, marginTop: '5px' }}>
+                                      <ReactMarkdown>{item.recommendation}</ReactMarkdown>
+                                  </div>
+                                  {item.monthly_impact !== "N/A" && (
+                                      <div style={{ fontSize: '0.8rem', color: colors.terracotta, marginTop: '6px', fontWeight: 'bold' }}>Impact: {item.monthly_impact}</div>
+                                  )}
+                              </div>
+                          ))
+                          ) : (
+                          <ReactMarkdown>
+                              {typeof data.result?.agent_3?.optimized_plan === 'string' ? data.result.agent_3.optimized_plan : "Optimized plan not found."}
+                          </ReactMarkdown>
+                          )}
+                      </div>
+                  </div>
 
-                    <div>
-                        <h4 style={{ color: colors.sage, marginBottom: '10px', fontSize: '0.95rem', textTransform: 'uppercase' }}>
-                            Final Summary
-                        </h4>
-                        <div style={{ padding: '0 5px' }}>
-                            <ReactMarkdown>
+                  <div>
+                      <h4 style={{ color: colors.sage, marginBottom: '10px', fontSize: '0.95rem', textTransform: 'uppercase' }}>
+                          Final Summary
+                      </h4>
+                      <div style={{ padding: '0 5px' }}>
+                          <ReactMarkdown>
                             {data.result?.agent_4?.user_facing_summary || "Summary data missing..."}
-                            </ReactMarkdown>
-                        </div>
-                    </div>
-                </div>
-                )}
-            </div>
+                          </ReactMarkdown>
+                      </div>
+                  </div>
 
-            <details style={{ marginTop: '20px', background: colors.stone, borderRadius: '8px', overflow: 'hidden' }}>
-                <summary style={{ padding: '12px', cursor: 'pointer', fontSize: '0.8rem', color: colors.oak, fontWeight: 'bold' }}>View Full JSON</summary>
-                <pre style={{ fontSize: '0.75rem', padding: '12px', maxHeight: '150px', overflowY: 'auto', background: colors.oak, color: colors.cream, margin: 0 }}>
-                    {JSON.stringify(data.result, null, 2)}
-                </pre>
-            </details>
+                  <details style={{ background: colors.stone, borderRadius: '8px', overflow: 'hidden' }}>
+                      <summary style={{ padding: '12px', cursor: 'pointer', fontSize: '0.8rem', color: colors.oak, fontWeight: 'bold' }}>View Full JSON</summary>
+                      <pre style={{ fontSize: '0.75rem', padding: '12px', maxHeight: '150px', overflowY: 'auto', background: colors.oak, color: colors.cream, margin: 0 }}>
+                          {JSON.stringify(data.result, null, 2)}
+                      </pre>
+                  </details>
+              </div>
+            )}
           </div>
         )}
       </div>
