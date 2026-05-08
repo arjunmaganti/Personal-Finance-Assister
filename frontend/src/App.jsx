@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { runAgentPipeline } from './api'
 import ReactMarkdown from 'react-markdown';
 
@@ -8,7 +8,7 @@ function App() {
   const [results, setResults] = useState({});
   const [errors, setErrors] = useState({});
   const [secondsElapsed, setSecondsElapsed] = useState(0);
-  
+
   // Logic for UI state: expansions and copy confirmation
   const [expandedCards, setExpandedCards] = useState({});
   const [copyStatus, setCopyStatus] = useState({});
@@ -53,7 +53,6 @@ function App() {
     }
 
     navigator.clipboard.writeText(textToCopy).then(() => {
-      // Local UI confirmation logic
       setCopyStatus(prev => ({ ...prev, [v]: true }));
       setTimeout(() => {
         setCopyStatus(prev => ({ ...prev, [v]: false }));
@@ -67,7 +66,7 @@ function App() {
     setErrors({});
     setResults({});
     setSecondsElapsed(0);
-    setExpandedCards({}); // Reset state for new run
+    setExpandedCards({}); // Reset expansions on new run
     const timer = setInterval(() => setSecondsElapsed((prev) => prev + 1), 1000);
 
     const variants = ['A', 'B', 'C', 'D'];
@@ -99,7 +98,7 @@ function App() {
         borderRadius: '16px',
         borderLeft: `6px solid ${colors.terracotta}`,
         boxShadow: '0 8px 16px rgba(0,0,0,0.3)',
-        minHeight: '400px',
+        minHeight: '500px',
         display: 'flex',
         flexDirection: 'column',
         position: 'relative' 
@@ -117,11 +116,11 @@ function App() {
               transition: 'all 0.3s ease'
             }}
           >
-            {isCopied ? 'COPIED!' : 'COPY ALL'}
+            {isCopied ? 'COPIED!' : 'COPY'}
           </button>
         )}
 
-        <div style={{ borderBottom: `1px solid ${colors.stone}`, paddingBottom: '12px', marginBottom: '20px', paddingRight: '75px' }}>
+        <div style={{ borderBottom: `1px solid ${colors.stone}`, paddingBottom: '12px', marginBottom: '20px', paddingRight: '65px' }}>
           <div style={{ fontWeight: 'bold', color: colors.oak, fontSize: '1.1rem', letterSpacing: '0.5px' }}>
             Variant {v}: {config.title}
           </div>
@@ -154,7 +153,6 @@ function App() {
                   maxHeight: isExpanded ? 'none' : '280px', 
                   overflow: 'hidden',
                   position: 'relative',
-                  // Fade effect for the "preview" mode
                   maskImage: isExpanded ? 'none' : 'linear-gradient(to bottom, black 70%, transparent 100%)',
                   WebkitMaskImage: isExpanded ? 'none' : 'linear-gradient(to bottom, black 70%, transparent 100%)'
                 }}>
@@ -184,7 +182,9 @@ function App() {
             ) : (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                   <div>
-                      <h4 style={{ color: '#2980b9', marginBottom: '10px', fontSize: '0.95rem', textTransform: 'uppercase' }}>Optimized Strategy</h4>
+                      <h4 style={{ color: '#2980b9', marginBottom: '10px', fontSize: '0.95rem', textTransform: 'uppercase' }}>
+                          Optimized Strategy
+                      </h4>
                       <div style={{ maxHeight: '300px', overflowY: 'auto', background: '#fff9f0', padding: '15px', borderRadius: '10px', border: `1px solid ${colors.stone}` }}>
                           {Array.isArray(data.result?.agent_3?.optimized_plan) ? (
                           data.result.agent_3.optimized_plan.map((item, index) => (
@@ -193,20 +193,28 @@ function App() {
                                   <div style={{ fontSize: '0.9rem', color: colors.espresso, marginTop: '5px' }}>
                                       <ReactMarkdown>{item.recommendation}</ReactMarkdown>
                                   </div>
-                                  {item.monthly_impact && item.monthly_impact !== "N/A" && (
+                                  {item.monthly_impact !== "N/A" && (
                                       <div style={{ fontSize: '0.8rem', color: colors.terracotta, marginTop: '6px', fontWeight: 'bold' }}>Impact: {item.monthly_impact}</div>
                                   )}
                               </div>
                           ))
                           ) : (
-                          <ReactMarkdown>{data.result?.agent_3?.optimized_plan || "Plan not found."}</ReactMarkdown>
+                          <ReactMarkdown>
+                              {typeof data.result?.agent_3?.optimized_plan === 'string' ? data.result.agent_3.optimized_plan : "Optimized plan not found."}
+                          </ReactMarkdown>
                           )}
                       </div>
                   </div>
 
                   <div>
-                      <h4 style={{ color: colors.sage, marginBottom: '10px', fontSize: '0.95rem', textTransform: 'uppercase' }}>Final Summary</h4>
-                      <ReactMarkdown>{data.result?.agent_4?.user_facing_summary || "Summary data missing..."}</ReactMarkdown>
+                      <h4 style={{ color: colors.sage, marginBottom: '10px', fontSize: '0.95rem', textTransform: 'uppercase' }}>
+                          Final Summary
+                      </h4>
+                      <div style={{ padding: '0 5px' }}>
+                          <ReactMarkdown>
+                            {data.result?.agent_4?.user_facing_summary || "Summary data missing..."}
+                          </ReactMarkdown>
+                      </div>
                   </div>
 
                   <details style={{ background: colors.stone, borderRadius: '8px', overflow: 'hidden' }}>
@@ -231,14 +239,14 @@ function App() {
     }}>
       <div style={{ width: '95%', maxWidth: '2500px', padding: '60px 0', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <header style={{ textAlign: 'center', marginBottom: '50px' }}>
-          <h1 style={{ color: colors.cream, fontSize: 'clamp(2rem, 5vw, 3.5rem)', textShadow: '2px 2px 4px rgba(0,0,0,0.6)', marginBottom: '15px' }}>Financial AI Comparator</h1>
-          <p style={{ color: colors.stone, fontSize: 'clamp(1rem, 2vw, 1.3rem)', fontStyle: 'italic' }}>Evaluating Prompt Engineering vs. Multi-Agent Workflows</p>
+          <h1 style={{ color: colors.cream, fontSize: 'clamp(2rem, 5vw, 3.5rem)', textShadow: '2px 2px 4px rgba(0,0,0,0.6)', marginBottom: '15px' }}>Side-by-Side Comparison Demo: Variants A-D</h1>
+          <p style={{ color: colors.stone, fontSize: 'clamp(1rem, 2vw, 1.3rem)', fontStyle: 'italic' }}>Input a persona to compare the differences between each variant's response.</p>
         </header>
 
         <section style={{ marginBottom: '60px', background: colors.cream, padding: '35px', borderRadius: '16px', boxShadow: '0 12px 30px rgba(0,0,0,0.4)', width: '100%', maxWidth: '1000px', border: `1px solid ${colors.stone}` }}>
           <form onSubmit={handleSubmit}>
             <textarea
-              placeholder="Enter persona details (e.g., '22yo grad, 50k salary, 30k student debt...')"
+              placeholder="Input a persona/financial situation"
               value={persona}
               onChange={(e) => setPersona(e.target.value)}
               required
@@ -249,7 +257,7 @@ function App() {
               disabled={loading || !persona}
               style={{ width: '100%', padding: '20px', backgroundColor: loading ? '#bdc3c7' : colors.terracotta, color: colors.cream, border: 'none', borderRadius: '8px', fontWeight: 'bold', fontSize: '1.3rem', cursor: loading ? 'default' : 'pointer', boxShadow: '0 4px 10px rgba(0,0,0,0.3)', textTransform: 'uppercase', letterSpacing: '2px' }}
             >
-              {loading ? `Processing pipelines (${secondsElapsed}s)...` : 'Run Comparison'}
+              {loading ? `Running All Pipelines (${secondsElapsed}s)...` : 'Run Comparison'}
             </button>
           </form>
         </section>
