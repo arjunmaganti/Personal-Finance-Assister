@@ -162,7 +162,7 @@ function App() {
     }}>
       <div style={{ 
         width: '95%',
-        maxWidth: '2500px', // High max-width to allow stretch on ultra-wide monitors
+        maxWidth: '2500px', 
         padding: '60px 0',
         display: 'flex',
         flexDirection: 'column',
@@ -199,7 +199,8 @@ function App() {
                 boxSizing: 'border-box',
                 fontFamily: 'inherit',
                 fontSize: '1.2rem',
-                backgroundColor: '#fffcf5'
+                backgroundColor: '#fffcf5',
+                color: colors.espresso // Explicitly setting input text color
               }}
             />
             <button
