@@ -95,7 +95,7 @@ function App() {
               position: 'absolute', top: '15px', right: '15px',
               background: colors.stone, border: 'none', borderRadius: '4px',
               padding: '6px 10px', cursor: 'pointer', fontSize: '0.7rem',
-              color: colors.oak, fontWeight: 'bold'
+              color: colors.oak, fontWeight: 'bold', zIndex: 10
             }}
           >
             COPY ALL
@@ -128,39 +128,58 @@ function App() {
 
         {data && (
           <div style={{ fontSize: '0.95rem', lineHeight: '1.7', color: colors.espresso, flex: 1, display: 'flex', flexDirection: 'column' }}>
-            {(v === 'A' || v === 'B') ? (
-              <div style={{ flex: 1 }}>
-                <ReactMarkdown>{typeof data.result === 'string' ? data.result : data.result?.result}</ReactMarkdown>
-              </div>
-            ) : (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', flex: 1 }}>
-                <section>
-                  <h4 style={{ color: '#2980b9', fontSize: '0.85rem', textTransform: 'uppercase', marginBottom: '8px' }}>Optimized Strategy</h4>
-                  <div style={{ maxHeight: '250px', overflowY: 'auto', background: '#fff9f0', padding: '12px', borderRadius: '8px', border: `1px solid ${colors.stone}` }}>
-                    {Array.isArray(data.result?.agent_3?.optimized_plan) ? 
-                      data.result.agent_3.optimized_plan.map((item, i) => (
-                        <div key={i} style={{marginBottom: '10px', borderBottom: i !== data.result.agent_3.optimized_plan.length -1 ? `1px solid ${colors.stone}` : 'none', paddingBottom: '5px'}}>
-                          <strong>{item.heuristic}:</strong> {item.recommendation}
+            
+            <div style={{ flex: 1 }}>
+                {(v === 'A' || v === 'B') ? (
+                <div className="markdown-container">
+                    <ReactMarkdown>{typeof data.result === 'string' ? data.result : "No data available"}</ReactMarkdown>
+                </div>
+                ) : (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+                    <div>
+                        <h4 style={{ color: '#2980b9', marginBottom: '10px', fontSize: '0.95rem', textTransform: 'uppercase' }}>
+                            Optimized Strategy
+                        </h4>
+                        <div style={{ maxHeight: '300px', overflowY: 'auto', background: '#fff9f0', padding: '15px', borderRadius: '10px', border: `1px solid ${colors.stone}` }}>
+                            {Array.isArray(data.result?.agent_3?.optimized_plan) ? (
+                            data.result.agent_3.optimized_plan.map((item, index) => (
+                                <div key={index} style={{ marginBottom: '15px', borderBottom: `1px solid ${colors.stone}`, paddingBottom: '10px' }}>
+                                    <div style={{ fontWeight: 'bold', color: colors.oak, fontSize: '0.9rem' }}>{item.heuristic}</div>
+                                    <div style={{ fontSize: '0.9rem', color: colors.espresso, marginTop: '5px' }}>
+                                        <ReactMarkdown>{item.recommendation}</ReactMarkdown>
+                                    </div>
+                                    {item.monthly_impact !== "N/A" && (
+                                        <div style={{ fontSize: '0.8rem', color: colors.terracotta, marginTop: '6px', fontWeight: 'bold' }}>Impact: {item.monthly_impact}</div>
+                                    )}
+                                </div>
+                            ))
+                            ) : (
+                            <ReactMarkdown>
+                                {typeof data.result?.agent_3?.optimized_plan === 'string' ? data.result.agent_3.optimized_plan : "Optimized plan not found."}
+                            </ReactMarkdown>
+                            )}
                         </div>
-                      )) 
-                      : <ReactMarkdown>{data.result?.agent_3?.optimized_plan || "Plan not found."}</ReactMarkdown>}
-                  </div>
-                </section>
-                
-                <section>
-                  <h4 style={{ color: colors.sage, fontSize: '0.85rem', textTransform: 'uppercase', marginBottom: '8px' }}>Final Summary</h4>
-                  <ReactMarkdown>{data.result?.agent_4?.user_facing_summary || "Summary not found."}</ReactMarkdown>
-                </section>
-              </div>
-            )}
+                    </div>
+
+                    <div>
+                        <h4 style={{ color: colors.sage, marginBottom: '10px', fontSize: '0.95rem', textTransform: 'uppercase' }}>
+                            Final Summary
+                        </h4>
+                        <div style={{ padding: '0 5px' }}>
+                            <ReactMarkdown>
+                            {data.result?.agent_4?.user_facing_summary || "Summary data missing..."}
+                            </ReactMarkdown>
+                        </div>
+                    </div>
+                </div>
+                )}
+            </div>
 
             <details style={{ marginTop: '20px', background: colors.stone, borderRadius: '8px', overflow: 'hidden' }}>
-              <summary style={{ padding: '10px', cursor: 'pointer', fontSize: '0.8rem', color: colors.oak, fontWeight: 'bold' }}>
-                View Full JSON
-              </summary>
-              <pre style={{ fontSize: '0.75rem', padding: '12px', maxHeight: '150px', overflowY: 'auto', background: colors.oak, color: colors.cream, margin: 0 }}>
-                {JSON.stringify(data.result, null, 2)}
-              </pre>
+                <summary style={{ padding: '12px', cursor: 'pointer', fontSize: '0.8rem', color: colors.oak, fontWeight: 'bold' }}>View Full JSON</summary>
+                <pre style={{ fontSize: '0.75rem', padding: '12px', maxHeight: '150px', overflowY: 'auto', background: colors.oak, color: colors.cream, margin: 0 }}>
+                    {JSON.stringify(data.result, null, 2)}
+                </pre>
             </details>
           </div>
         )}
@@ -171,35 +190,35 @@ function App() {
   return (
     <div style={{ 
       width: '100vw', minHeight: '100vh', backgroundColor: colors.oak, 
-      backgroundImage: 'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("https://www.transparenttextures.com/patterns/dark-wood.png")',
-      display: 'flex', justifyContent: 'center', fontFamily: '"Garamond", "Georgia", serif'
+      backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://www.transparenttextures.com/patterns/dark-wood.png")',
+      display: 'flex', justifyContent: 'center', fontFamily: '"Garamond", "Georgia", serif',
     }}>
       <div style={{ width: '95%', maxWidth: '2500px', padding: '60px 0', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <header style={{ textAlign: 'center', marginBottom: '40px' }}>
+        <header style={{ textAlign: 'center', marginBottom: '50px' }}>
           <h1 style={{ color: colors.cream, fontSize: 'clamp(2rem, 5vw, 3.5rem)', textShadow: '2px 2px 4px rgba(0,0,0,0.6)', marginBottom: '15px' }}>Side-by-Side Comparison Demo: Variants A-D</h1>
-          <p style={{ color: colors.stone, fontSize: 'clamp(1rem, 2vw, 1.3rem)', fontStyle: 'italic' }}>Compare context engineering strategies for financial personas.</p>
+          <p style={{ color: colors.stone, fontSize: 'clamp(1rem, 2vw, 1.3rem)', fontStyle: 'italic' }}>Input a persona to compare the differences between each variant's response.</p>
         </header>
 
-        <section style={{ marginBottom: '50px', background: colors.cream, padding: '30px', borderRadius: '16px', boxShadow: '0 12px 30px rgba(0,0,0,0.4)', width: '100%', maxWidth: '900px', border: `1px solid ${colors.stone}` }}>
+        <section style={{ marginBottom: '60px', background: colors.cream, padding: '35px', borderRadius: '16px', boxShadow: '0 12px 30px rgba(0,0,0,0.4)', width: '100%', maxWidth: '1000px', border: `1px solid ${colors.stone}` }}>
           <form onSubmit={handleSubmit}>
             <textarea
-              placeholder="Input a persona/financial situation..."
+              placeholder="Input a persona/financial situation"
               value={persona}
               onChange={(e) => setPersona(e.target.value)}
               required
-              style={{ width: '100%', height: '120px', padding: '15px', borderRadius: '8px', border: `2px solid ${colors.stone}`, boxSizing: 'border-box', fontFamily: 'inherit', fontSize: '1.1rem', backgroundColor: '#fffcf5', color: colors.espresso }}
+              style={{ width: '100%', height: '130px', padding: '20px', borderRadius: '8px', border: `2px solid ${colors.stone}`, marginBottom: '20px', boxSizing: 'border-box', fontFamily: 'inherit', fontSize: '1.2rem', backgroundColor: '#fffcf5', color: colors.espresso }}
             />
             <button
               type="submit"
               disabled={loading || !persona}
-              style={{ width: '100%', padding: '18px', marginTop: '15px', backgroundColor: colors.terracotta, color: colors.cream, border: 'none', borderRadius: '8px', fontWeight: 'bold', fontSize: '1.2rem', cursor: loading ? 'default' : 'pointer', textTransform: 'uppercase', letterSpacing: '1px' }}
+              style={{ width: '100%', padding: '20px', backgroundColor: loading ? '#bdc3c7' : colors.terracotta, color: colors.cream, border: 'none', borderRadius: '8px', fontWeight: 'bold', fontSize: '1.3rem', cursor: loading ? 'default' : 'pointer', boxShadow: '0 4px 10px rgba(0,0,0,0.3)', textTransform: 'uppercase', letterSpacing: '2px' }}
             >
               {loading ? `Running All Pipelines (${secondsElapsed}s)...` : 'Run Comparison'}
             </button>
           </form>
         </section>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 400px), 1fr))', gap: '30px', width: '100%', justifyContent: 'center' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 400px), 1fr))', gap: '40px', width: '100%', justifyContent: 'center' }}>
           {['A', 'B', 'C', 'D'].map(v => renderCard(v))}
         </div>
       </div>
