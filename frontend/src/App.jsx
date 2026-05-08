@@ -168,7 +168,7 @@ function App() {
       flexDirection: 'column',
       alignItems: 'center'
     }}>
-      <div style={{ maxWidth: '1400px', width: '100%' }}>
+      <div style={{ maxWidth: '3000px', width: '100%' }}>
         <header style={{ textAlign: 'center', marginBottom: '50px' }}>
           <h1 style={{ color: colors.cream, fontSize: '3rem', textShadow: '2px 2px 4px rgba(0,0,0,0.5)', marginBottom: '15px' }}>Side-by-Side Comparison Demo: Variants A-D</h1>
           <p style={{ color: colors.stone, fontSize: '1.2rem', fontStyle: 'italic' }}>Input a persona to compare the differences between each variant's response.</p>
