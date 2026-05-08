@@ -63,13 +63,11 @@ function App() {
         padding: '25px',
         borderRadius: '16px',
         borderLeft: `6px solid ${colors.terracotta}`,
-        boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
-        minHeight: '480px',
+        boxShadow: '0 8px 16px rgba(0,0,0,0.3)',
+        minHeight: '500px',
         display: 'flex',
-        flexDirection: 'column',
-        transition: 'transform 0.2s ease-in-out'
+        flexDirection: 'column'
       }}>
-        {/* Header with Title, Estimate, and Live Timer */}
         <div style={{ borderBottom: `1px solid ${colors.stone}`, paddingBottom: '12px', marginBottom: '20px' }}>
           <div style={{ fontWeight: 'bold', color: colors.oak, fontSize: '1.1rem', letterSpacing: '0.5px' }}>
             Variant {v}: {config.title}
@@ -89,23 +87,21 @@ function App() {
         )}
 
         {error && (
-          <div style={{ color: '#c0392b', fontSize: '0.9rem', background: '#fdf2f2', padding: '12px', borderRadius: '8px', border: '1px solid #efcccc' }}>
+          <div style={{ color: '#c0392b', fontSize: '0.9rem', background: '#fdf2f2', padding: '12px', borderRadius: '8px' }}>
             {error}
           </div>
         )}
 
         {data && (
           <div style={{ fontSize: '0.95rem', lineHeight: '1.7', color: colors.espresso, flex: 1, display: 'flex', flexDirection: 'column' }}>
-            
             {(v === 'A' || v === 'B') ? (
               <div className="markdown-container">
                 <ReactMarkdown>{typeof data.result === 'string' ? data.result : "No data available"}</ReactMarkdown>
               </div>
             ) : (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-                {/* Agent 3 section */}
                 <div style={{ borderBottom: `1px solid ${colors.stone}`, paddingBottom: '18px' }}>
-                  <h4 style={{ color: '#2980b9', marginBottom: '10px', fontSize: '0.95rem', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                  <h4 style={{ color: '#2980b9', marginBottom: '10px', fontSize: '0.95rem', textTransform: 'uppercase' }}>
                     Optimized Strategy
                   </h4>
                   <div style={{ maxHeight: '300px', overflowY: 'auto', background: '#fff9f0', padding: '15px', borderRadius: '10px', border: `1px solid ${colors.stone}` }}>
@@ -129,9 +125,8 @@ function App() {
                   </div>
                 </div>
 
-                {/* Agent 4 section */}
                 <div>
-                  <h4 style={{ color: colors.sage, marginBottom: '10px', fontSize: '0.95rem', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                  <h4 style={{ color: colors.sage, marginBottom: '10px', fontSize: '0.95rem', textTransform: 'uppercase' }}>
                     Final Summary
                   </h4>
                   <div style={{ padding: '0 5px' }}>
@@ -157,21 +152,25 @@ function App() {
 
   return (
     <div style={{ 
-      padding: '60px 20px', 
-      maxWidth: '100%', 
-      margin: '0 auto', 
-      fontFamily: '"Garamond", "Georgia", serif', 
-      backgroundColor: colors.oak, 
-      backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://www.transparenttextures.com/patterns/dark-wood.png")',
+      width: '100vw',
       minHeight: '100vh',
+      backgroundColor: colors.oak, 
+      backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://www.transparenttextures.com/patterns/dark-wood.png")',
       display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center'
+      justifyContent: 'center',
+      fontFamily: '"Garamond", "Georgia", serif',
     }}>
-      <div style={{ maxWidth: '3000px', width: '100%' }}>
+      <div style={{ 
+        width: '95%',
+        maxWidth: '2500px', // High max-width to allow stretch on ultra-wide monitors
+        padding: '60px 0',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
+      }}>
         <header style={{ textAlign: 'center', marginBottom: '50px' }}>
-          <h1 style={{ color: colors.cream, fontSize: '3rem', textShadow: '2px 2px 4px rgba(0,0,0,0.5)', marginBottom: '15px' }}>Side-by-Side Comparison Demo: Variants A-D</h1>
-          <p style={{ color: colors.stone, fontSize: '1.2rem', fontStyle: 'italic' }}>Input a persona to compare the differences between each variant's response.</p>
+          <h1 style={{ color: colors.cream, fontSize: '3.5rem', textShadow: '2px 2px 4px rgba(0,0,0,0.6)', marginBottom: '15px' }}>Side-by-Side Comparison Demo: Variants A-D</h1>
+          <p style={{ color: colors.stone, fontSize: '1.3rem', fontStyle: 'italic' }}>Input a persona to compare the differences between each variant's response.</p>
         </header>
 
         <section style={{ 
@@ -179,9 +178,9 @@ function App() {
           background: colors.cream, 
           padding: '35px', 
           borderRadius: '16px', 
-          boxShadow: '0 10px 25px rgba(0,0,0,0.3)', 
-          maxWidth: '900px', 
-          margin: '0 auto 60px auto',
+          boxShadow: '0 12px 30px rgba(0,0,0,0.4)', 
+          width: '100%',
+          maxWidth: '1000px', 
           border: `1px solid ${colors.stone}`
         }}>
           <form onSubmit={handleSubmit}>
@@ -192,14 +191,14 @@ function App() {
               required
               style={{ 
                 width: '100%', 
-                height: '120px', 
-                padding: '15px', 
+                height: '130px', 
+                padding: '20px', 
                 borderRadius: '8px', 
                 border: `2px solid ${colors.stone}`, 
                 marginBottom: '20px', 
                 boxSizing: 'border-box',
                 fontFamily: 'inherit',
-                fontSize: '1.1rem',
+                fontSize: '1.2rem',
                 backgroundColor: '#fffcf5'
               }}
             />
@@ -208,17 +207,17 @@ function App() {
               disabled={loading || !persona}
               style={{ 
                 width: '100%', 
-                padding: '18px', 
+                padding: '20px', 
                 backgroundColor: loading ? '#bdc3c7' : colors.terracotta, 
                 color: colors.cream, 
                 border: 'none', 
                 borderRadius: '8px', 
                 fontWeight: 'bold', 
-                fontSize: '1.2rem',
+                fontSize: '1.3rem',
                 cursor: loading ? 'default' : 'pointer',
-                boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
+                boxShadow: '0 4px 10px rgba(0,0,0,0.3)',
                 textTransform: 'uppercase',
-                letterSpacing: '1px'
+                letterSpacing: '2px'
               }}
             >
               {loading ? `Running All Pipelines (${secondsElapsed}s)...` : 'Run Comparison'}
@@ -228,8 +227,9 @@ function App() {
 
         <div style={{ 
           display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', 
-          gap: '30px',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', 
+          gap: '40px',
+          width: '100%',
           justifyContent: 'center'
         }}>
           {['A', 'B', 'C', 'D'].map(v => renderCard(v))}
