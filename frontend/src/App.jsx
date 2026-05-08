@@ -144,7 +144,7 @@ function App() {
   };
 
   return (
-    <div style={{ padding: '40px 20px', maxWidth: '1500px', margin: '0 auto', fontFamily: 'system-ui', backgroundColor: '#787777', minHeight: '100vh' }}>
+    <div style={{ padding: '40px 20px', maxWidth: '1500px', margin: '0 auto', fontFamily: 'serif', backgroundColor: '#787777', minHeight: '100vh' }}>
       <header style={{ textAlign: 'center', marginBottom: '40px' }}>
         <h1>Side-by-Side Comparison Demo: Variants A-D</h1>
         <p>Input a persona to compare the differences between each variant's response.</p>
