@@ -20,7 +20,6 @@ export const runAgentPipeline = async (variant, persona) => {
     });
 
     if (!response.ok) {
-      // Handle Rate Limiting (Gemini Free Tier often hits this)
       if (response.status === 429) {
         throw new Error("Gemini API limit reached. Please wait 60 seconds before trying again.");
       }
@@ -39,9 +38,9 @@ export const runAgentPipeline = async (variant, persona) => {
 export const runAllVariants = async (persona) => {
   const variants = ['A', 'B', 'C', 'D'];
   
-  // Maps each variant to a promise
+
   const promises = variants.map(v => runAgentPipeline(v, persona));
   
-  // Executes all in parallel
+
   return await Promise.allSettled(promises);
 };
