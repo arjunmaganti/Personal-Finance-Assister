@@ -9,7 +9,6 @@ function App() {
   const [errors, setErrors] = useState({});
   const [secondsElapsed, setSecondsElapsed] = useState(0);
 
-  // Logic for UI state: expansions and copy confirmation
   const [expandedCards, setExpandedCards] = useState({});
   const [copyStatus, setCopyStatus] = useState({});
 
